@@ -1,6 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:runiverse/login.dart';
+import 'package:runiverse/config/palette.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,11 +33,11 @@ class SplashScreen extends StatelessWidget {
           children: [
             Image.asset('assets/runiverse_logo.png', height: 85, width: 85),
             const Text('Runiverse',
-              style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Color.fromRGBO(73, 224, 199, 1)),
+              style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Palette.iconColor),
             )
           ],
         ),
-        backgroundColor: Color.fromRGBO(8, 3, 24, 1),
+        backgroundColor: Palette.backgroundDarkColor,
         nextScreen: const Home(),
       splashIconSize: 128,
       splashTransition: SplashTransition.fadeTransition,
@@ -51,11 +53,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-        centerTitle: true,
-      ),
+    return MaterialApp(
+      home: LoginPage(),
     );
   }
 }
