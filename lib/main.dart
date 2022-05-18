@@ -2,6 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:runiverse/login.dart';
+import 'package:runiverse/signup.dart';
 import 'package:runiverse/config/palette.dart';
 
 void main() {
@@ -54,7 +55,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      home: SignUpPage(),
     );
   }
 }

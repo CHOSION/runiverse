@@ -31,7 +31,7 @@ class LoginPage extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SizedBox(height: 40),
+        SizedBox(height: 84),
         Text(
           "Welcome!",
           style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
@@ -95,7 +95,9 @@ class LoginPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text("계정이 없으신가요?"),
-        TextButton(onPressed: () {}, child: Text("회원가입"))
+        TextButton(onPressed: () {
+          print("SignUp Pressed.");
+        }, child: Text("회원가입"))
       ],
     );
   }
