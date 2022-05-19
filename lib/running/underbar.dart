@@ -20,7 +20,20 @@ class _UnderBarState extends State<UnderBar> {
   }
 
   Widget getBody() {
-    return Container();
+    return IndexedStack(
+      index: pageIndex,
+      children: [
+        Center(
+          child: Text("apple"),
+        ),
+        Center(
+          child: Text("google"),
+        ),
+        Center(
+          child: Text("runiverse"),
+        ),
+      ],
+    );
   }
 
   Widget getFooter() {
@@ -52,7 +65,16 @@ class _UnderBarState extends State<UnderBar> {
                   },
                   child: Column(
                     children: [
-                      Icon(items[index], size: 28, color: pageIndex == index ? Palette.textDarkColor)
+                      Icon(items[index], size: 28, color: Palette.iconColor),
+                      SizedBox(height: 5,),
+                      pageIndex == index ? Container(
+                        width: 6,
+                        height: 6,
+                        decoration: BoxDecoration(
+                          color: Palette.textDarkColor,
+                          shape: BoxShape.circle
+                        ),
+                      ) : Container()
                     ],
                   ),
               );
