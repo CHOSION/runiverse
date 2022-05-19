@@ -16,9 +16,7 @@ class LoginPage extends StatelessWidget {
             children: [
               _header(context),
               _inputField(context),
-              _forgotPassword(context),
-              _signUp(context),
-              _signUpOther(context)
+              _signUp(context)
             ],
           ),
         ),
@@ -81,31 +79,25 @@ class LoginPage extends StatelessWidget {
             shape: StadiumBorder(),
             padding: EdgeInsets.symmetric(vertical: 12),
           ),
-        )
+        ),
+        TextButton(onPressed: () {}, child: Text("Forget password?"))
       ],
     );
-  }
-
-  _forgotPassword(context) {
-    return TextButton(onPressed: () {}, child: Text("Forget password?"));
   }
 
   _signUp(context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text("계정이 없으신가요?"),
-        TextButton(onPressed: () {
-          print("SignUp Pressed.");
-        }, child: Text("회원가입"))
-      ],
-    );
-  }
-
-  _signUpOther(context) {
     return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("계정이 없으신가요?"),
+              TextButton(onPressed: () {
+                print("SignUp Pressed.");
+              }, child: Text("회원가입"))
+            ],
+          ),
           ElevatedButton.icon(
             onPressed: () {},
             icon: Image.asset('assets/apple_logo.png', width: 18.0, height: 18.0),

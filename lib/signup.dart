@@ -16,9 +16,7 @@ class SignUpPage extends StatelessWidget {
             children: [
               _header(context),
               _inputField(context),
-              //_forgotPassword(context),
-              //_signUp(context),
-              //_signUpOther(context)
+              _logIn(context)
             ],
           ),
         ),
@@ -92,6 +90,18 @@ class SignUpPage extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 12),
           ),
         )
+      ],
+    );
+  }
+
+  _logIn(context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("계정이 있으신가요?"),
+        TextButton(onPressed: () {
+          print("Login Pressed.");
+        }, child: Text("로그인"))
       ],
     );
   }
