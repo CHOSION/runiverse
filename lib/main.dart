@@ -5,7 +5,6 @@ import 'package:runiverse/login.dart';
 import 'package:runiverse/signup.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/running/profile.dart';
-import 'package:runiverse/running/underbar.dart';
 
 void main() {
   runApp(const MyApp());
