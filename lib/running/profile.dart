@@ -12,9 +12,10 @@ class Profile extends StatelessWidget {
       backgroundColor: Palette.backgroundDarkColor,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        iconSize: 20,
+        iconSize: 24,
+        backgroundColor: Palette.backgroundDarkColor,
         selectedIconTheme: IconThemeData(color: Palette.iconColor),
-        unselectedIconTheme: IconThemeData(color: Colors.black12),
+        unselectedIconTheme: IconThemeData(color: Colors.grey),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: [
@@ -23,24 +24,28 @@ class Profile extends StatelessWidget {
               padding: const EdgeInsets.only(top: 8.0),
               child: Icon(Icons.home_filled),
             ),
+            label: 'Home'
           ),
           BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Icon(Icons.bar_chart),
             ),
+            label: 'Stat'
           ),
           BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Icon(Icons.mode_comment),
             ),
+            label: 'Comment'
           ),
           BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Icon(Icons.menu),
             ),
+            label: 'Menu'
           ),
         ],
       ),
@@ -48,7 +53,7 @@ class Profile extends StatelessWidget {
         children: <Widget>[
           Positioned(
             top: 0,
-            height: height * 0.35,
+            height: height * 0.225,
             left: 0,
             right: 0,
             child: ClipRRect(
