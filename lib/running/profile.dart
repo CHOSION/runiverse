@@ -21,28 +21,28 @@ class Profile extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.only(top: 2.0),
               child: Icon(Icons.home_filled),
             ),
             label: 'Home'
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.only(top: 2.0),
               child: Icon(Icons.bar_chart),
             ),
             label: 'Stat'
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.only(top: 2.0),
               child: Icon(Icons.mode_comment),
             ),
             label: 'Comment'
           ),
           BottomNavigationBarItem(
             icon: Padding(
-              padding: const EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.only(top: 2.0),
               child: Icon(Icons.menu),
             ),
             label: 'Menu'
