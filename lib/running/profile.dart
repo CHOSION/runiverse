@@ -10,43 +10,45 @@ class Profile extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Palette.backgroundDarkColor,
-
-      bottomNavigationBar: ClipRRect(
-        child: BottomNavigationBar(
-          iconSize: 40,
-
-          selectedIconTheme: IconThemeData(
-              color: Palette.iconColor
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        iconSize: 20,
+        selectedIconTheme: IconThemeData(color: Palette.iconColor),
+        unselectedIconTheme: IconThemeData(color: Colors.black12),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: [
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Icon(Icons.home_filled),
+            ),
           ),
-          unselectedIconTheme: IconThemeData(
-              color: Colors.black12
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Icon(Icons.bar_chart),
+            ),
           ),
-          
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
-              ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.bar_chart),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Icon(Icons.mode_comment),
             ),
-            BottomNavigationBarItem(
-              icon: Image.asset('assets/runiverse_logo.png'),
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Icon(Icons.menu),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.mode_comment),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.menu),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
-
       body: Stack(
         children: <Widget>[
           Positioned(
             top: 0,
-            height: height*0.35,
+            height: height * 0.35,
             left: 0,
             right: 0,
             child: ClipRRect(

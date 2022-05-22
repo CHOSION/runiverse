@@ -29,7 +29,7 @@ class SignUpPage extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SizedBox(height: 84),
+        SizedBox(height: 60),
         Text(
           "Sign Up",
           style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
