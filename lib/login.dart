@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/signup.dart';
+import 'package:runiverse/running/profile.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -69,7 +71,13 @@ class LoginPage extends StatelessWidget {
         ),
         SizedBox(height: 10),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (BuildContext context) {
+                  return Profile();
+                })
+            );
+          },
           child: Text(
             "Login",
             style: TextStyle(fontSize: 17),
@@ -95,6 +103,11 @@ class LoginPage extends StatelessWidget {
               Text("계정이 없으신가요?"),
               TextButton(onPressed: () {
                 print("SignUp Pressed.");
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return SignUpPage();
+                    })
+                );
               }, child: Text("회원가입"))
             ],
           ),
