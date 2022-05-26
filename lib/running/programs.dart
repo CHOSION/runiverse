@@ -7,9 +7,28 @@ class Programs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Palette.backgroundDarkColor,
+      body: Stack(
+        children: <Widget>[
+          Positioned(
+            top: height * 0.3,
+            height: height * 1.5,
+            left: 20,
+            width: width-40,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: const Radius.circular(40),
+              ),
+              child: Container(
+                color: Palette.blockColor,
+              ),
+            ),
+          ),
+        ],
+      ),
+
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         iconSize: 24,
@@ -49,24 +68,8 @@ class Programs extends StatelessWidget {
           ),
         ],
       ),
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            top: 0,
-            height: height * 0.225,
-            left: 0,
-            right: 0,
-            child: ClipRRect(
-              borderRadius: const BorderRadius.vertical(
-                bottom: const Radius.circular(40),
-              ),
-              child: Container(
-                color: Palette.blockColor,
-              ),
-            ),
-          ),
-        ],
-      ),
+
+      backgroundColor: Palette.backgroundDarkColor,
     );
   }
 }

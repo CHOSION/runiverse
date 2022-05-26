@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/login.dart';
-import 'package:runiverse/running/profile.dart';
+import 'package:runiverse/running/programs.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -84,7 +84,7 @@ class SignUpPage extends StatelessWidget {
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (BuildContext context) {
-                  return Profile();
+                  return Programs();
                 })
             );
           },
