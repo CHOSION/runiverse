@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/running/running.dart';
 import 'package:runiverse/signup.dart';
 import 'package:runiverse/running/programs.dart';
 import 'package:runiverse/running/profile.dart';
@@ -75,7 +76,7 @@ class LoginPage extends StatelessWidget {
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (BuildContext context) {
-                  return Programs();
+                  return Marathon();
                 })
             );
           },

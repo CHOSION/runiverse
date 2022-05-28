@@ -94,6 +94,9 @@ class _ProgramsState extends State<Programs> {
                         ]
                     ),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     'Let\'s run with Runiverse!',
                     style: TextStyle(
