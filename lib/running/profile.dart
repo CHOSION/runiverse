@@ -27,7 +27,7 @@ class Profile extends StatelessWidget {
               ),
               // ProfileBox
               Container(
-                height: height * 0.4,
+                height: height * 0.2,
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     double innerHeight = constraints.maxHeight;
@@ -50,7 +50,7 @@ class Profile extends StatelessWidget {
                             child: Column(
                               children: [
                                 SizedBox(
-                                  height: 80,
+                                  height: 20,
                                 ),
                                 // Name
                                 Text(
@@ -145,14 +145,14 @@ class Profile extends StatelessWidget {
                         // ),
                         // Profiles(2)
                         Positioned(
-                          top: 30,
+                          top: 0,
                           left: 0,
                           right: 0,
                           child: Center(
                             child: Container(
                               child: CircleAvatar(
                                 backgroundImage: AssetImage('assets/profileExample.jpeg'),
-                                radius: 60.0,
+                                radius: 30.0,
                                 backgroundColor: Colors.deepPurple[300],
                               ),
                             ),
@@ -168,7 +168,7 @@ class Profile extends StatelessWidget {
         ),
       ),
 
-      
+
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
