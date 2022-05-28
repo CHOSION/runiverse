@@ -9,6 +9,7 @@ class Programs extends StatefulWidget {
 }
 
 class _ProgramsState extends State<Programs> {
+
   bool isYourPrograms = true;
 
   @override
@@ -187,8 +188,70 @@ class _ProgramsState extends State<Programs> {
 
                   // Programs
                   Container(
-                    
-                  )
+                    margin: EdgeInsets.only(top: 25),
+                    child: ElevatedButton(
+                      child: Text("Time Running",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                      onPressed: (){},
+                      style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all<Size>(Size(width*0.8,100)),
+                          backgroundColor: MaterialStateProperty.all<Color>(Palette.backgroundDarkColor),
+                          elevation: MaterialStateProperty.all(70),
+                          padding: MaterialStateProperty.all(EdgeInsets.all(30))
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
+                    child: ElevatedButton(
+                      child: Text("Distance Running",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                      onPressed: (){},
+                      style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all<Size>(Size(width*0.8,100)),
+                          backgroundColor: MaterialStateProperty.all<Color>(Palette.backgroundDarkColor),
+                          elevation: MaterialStateProperty.all(70),
+                          padding: MaterialStateProperty.all(EdgeInsets.all(30))
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
+                    child: ElevatedButton(
+                      child: Text("Interval Running",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                      onPressed: (){},
+                      style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all<Size>(Size(width*0.8,100)),
+                          backgroundColor: MaterialStateProperty.all<Color>(Palette.backgroundDarkColor),
+                          elevation: MaterialStateProperty.all(70),
+                          padding: MaterialStateProperty.all(EdgeInsets.all(30))
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
+                    child: ElevatedButton(
+                      child: Text("30min Walking",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                      onPressed: (){},
+                      style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all<Size>(Size(width*0.8,100)),
+                          backgroundColor: MaterialStateProperty.all<Color>(Palette.backgroundDarkColor),
+                          elevation: MaterialStateProperty.all(70),
+                          padding: MaterialStateProperty.all(EdgeInsets.all(30))
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
+                    child: ElevatedButton(
+                      child: Text("Marathon Challenge",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                      onPressed: (){},
+                      style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all<Size>(Size(width*0.8,100)),
+                          backgroundColor: MaterialStateProperty.all<Color>(Palette.backgroundDarkColor),
+                          elevation: MaterialStateProperty.all(70),
+                          padding: MaterialStateProperty.all(EdgeInsets.all(30))
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
