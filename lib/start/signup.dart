@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
-import 'package:runiverse/login.dart';
+import 'package:runiverse/start/login.dart';
 import 'package:runiverse/running/programs.dart';
 
 class SignUpPage extends StatelessWidget {
