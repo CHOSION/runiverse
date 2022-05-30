@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:runiverse/config/palette.dart';
 
 class Profile extends StatefulWidget {
@@ -53,47 +54,94 @@ class _ProfileState extends State<Profile> {
         ],
       ),
 
-      body: Stack(
-        children: [
-          Positioned(
-              top: height*0.05,
-              child: Container(
-                padding: EdgeInsets.all(20.0),
-                height: height*0.24,
-                width: width-40,
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                decoration: BoxDecoration(
-                  color: Palette.backgroundDarkColor,
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                child: Stack(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 130.0),
-                      child: CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage('assets/profileExample.jpeg'),
-                      ),
+      body: CustomScrollView(
+        slivers: [
+          // Appbar
+          SliverAppBar(
+            backgroundColor: Palette.blockColor,
+            leading: Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+            backwardsCompatibility: false,
+            systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Palette.blockColor,
+            ),
+          ),
+
+          // Profile Area
+          SliverToBoxAdapter(
+            child: Container(
+              child: Column(
+                children: [
+                  // 1. Profile Image
+                  Container(
+                    height: 120,
+                    width: 120,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage("assets/profileExample.jpeg"),
+                      )
                     ),
-                    SizedBox(
-                      height: height*0.02,
+                  ),
+
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  // 2. Username
+                  Text(
+                    "(id)",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10.0),
-                      child: Container(
-                        padding: EdgeInsets.all(20.0),
-                        height: height*0.1,
-                        width: width - 80,
-                        margin:  EdgeInsets.symmetric(horizontal: 20.0),
-                        decoration: BoxDecoration(
-                          color: Palette.blockColor,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              )
+                  ),
+
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  Wrap(
+                    direction: Axis.horizontal,
+                    children: [
+                      Column(
+                        children: [
+                          Text("168.24"),
+                          Text("Total Distance(km)")
+                        ],
+                      )
+                    ],
+                  ),
+
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  // 3. Stats
+                  Wrap(
+                    direction: Axis.horizontal,
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                              "18:41:55",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
+                            ),
+                          ),
+                          Text("hr")
+                        ],
+
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
           )
         ],
       ),
