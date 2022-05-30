@@ -10,6 +10,9 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+
+  bool isYourPrograms = true;
+
   @override
   Widget build(BuildContext context) {
 
@@ -101,44 +104,174 @@ class _ProfileState extends State<Profile> {
                   ),
 
                   SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
 
-                  Wrap(
-                    direction: Axis.horizontal,
+                  // 3. Stats
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Column(
-                        children: [
-                          Text("168.24"),
-                          Text("Total Distance(km)")
-                        ],
-                      )
+                      StatsItem(value: "18:41:55", label: "hr"),
+                      StatsItem(value: "168.24", label: "km"),
+                      StatsItem(value: "6\'40", label: "pace"),
+                      StatsItem(value: "13,540", label: "kcal"),
                     ],
                   ),
 
                   SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
 
-                  // 3. Stats
-                  Wrap(
-                    direction: Axis.horizontal,
-                    children: [
-                      Column(
+                  Positioned(
+                    top: height * 0.25,
+                    child: Container(
+                      padding: EdgeInsets.all(20.0),
+                      height: height,
+                      width: width-30,
+                      margin: EdgeInsets.symmetric(horizontal: 15),
+                      decoration: BoxDecoration(
+                          color: Palette.blockColor,
+                          borderRadius: BorderRadius.circular(15.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 15,
+                              spreadRadius: 15,
+                            )
+                          ]
+                      ),
+                      child: Column(
                         children: [
-                          Text(
-                              "18:41:55",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+
+                              GestureDetector(
+                                onTap: (){
+                                  setState(() {
+                                    isYourPrograms = false;
+                                  });
+                                },
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'All',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: !isYourPrograms ? Palette.iconColor
+                                            : Palette.backgroundLightColor,
+                                      ),
+                                    ),
+                                    if(!isYourPrograms)
+                                      Container(
+                                        margin: EdgeInsets.only(top: 3),
+                                        height: 3,
+                                        width: width*0.12,
+                                        color: Palette.iconColor,
+                                      )
+                                  ],
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: (){
+                                  setState(() {
+                                    isYourPrograms = true;
+                                  });
+                                },
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Yours',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: isYourPrograms ? Palette.iconColor : Palette.backgroundLightColor,
+                                      ),
+                                    ),
+                                    if(isYourPrograms)
+                                      Container(
+                                        margin: EdgeInsets.only(top: 3),
+                                        height: 3,
+                                        width: width*0.18,
+                                        color: Palette.iconColor,
+                                      )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+
+                          // Programs
+                          Container(
+                            margin: EdgeInsets.only(top: 25),
+                            child: ElevatedButton(
+                              child: Text("Time Running",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                              onPressed: (){},
+                              style: ButtonStyle(
+                                  minimumSize: MaterialStateProperty.all<Size>(Size(width*0.8,100)),
+                                  backgroundColor: MaterialStateProperty.all<Color>(Palette.backgroundDarkColor),
+                                  elevation: MaterialStateProperty.all(70),
+                                  padding: MaterialStateProperty.all(EdgeInsets.all(30))
+                              ),
                             ),
                           ),
-                          Text("hr")
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: ElevatedButton(
+                              child: Text("Distance Running",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                              onPressed: (){},
+                              style: ButtonStyle(
+                                  minimumSize: MaterialStateProperty.all<Size>(Size(width*0.8,100)),
+                                  backgroundColor: MaterialStateProperty.all<Color>(Palette.backgroundDarkColor),
+                                  elevation: MaterialStateProperty.all(70),
+                                  padding: MaterialStateProperty.all(EdgeInsets.all(30))
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: ElevatedButton(
+                              child: Text("Interval Running",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                              onPressed: (){},
+                              style: ButtonStyle(
+                                  minimumSize: MaterialStateProperty.all<Size>(Size(width*0.8,100)),
+                                  backgroundColor: MaterialStateProperty.all<Color>(Palette.backgroundDarkColor),
+                                  elevation: MaterialStateProperty.all(70),
+                                  padding: MaterialStateProperty.all(EdgeInsets.all(30))
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: ElevatedButton(
+                              child: Text("30min Walking",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                              onPressed: (){},
+                              style: ButtonStyle(
+                                  minimumSize: MaterialStateProperty.all<Size>(Size(width*0.8,100)),
+                                  backgroundColor: MaterialStateProperty.all<Color>(Palette.backgroundDarkColor),
+                                  elevation: MaterialStateProperty.all(70),
+                                  padding: MaterialStateProperty.all(EdgeInsets.all(30))
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: ElevatedButton(
+                              child: Text("Marathon Challenge",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                              onPressed: (){},
+                              style: ButtonStyle(
+                                  minimumSize: MaterialStateProperty.all<Size>(Size(width*0.8,100)),
+                                  backgroundColor: MaterialStateProperty.all<Color>(Palette.backgroundDarkColor),
+                                  elevation: MaterialStateProperty.all(70),
+                                  padding: MaterialStateProperty.all(EdgeInsets.all(30))
+                              ),
+                            ),
+                          ),
                         ],
-
-                      )
-                    ],
-                  )
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -150,3 +283,36 @@ class _ProfileState extends State<Profile> {
   }
 }
 
+class StatsItem extends StatelessWidget {
+  final String value;
+  final String label;
+
+  const StatsItem({
+    Key? key,
+    required this.value,
+    required this.label,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          value,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+            color: Colors.white
+          ),
+        ),
+        Text(
+          label,
+          style: TextStyle(
+              fontSize: 14,
+              color: Palette.listColor
+          ),
+        ),
+      ],
+    );
+  }
+}

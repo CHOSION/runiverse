@@ -6,5 +6,6 @@ class Palette {
   static const Color backgroundLightColor = Color(0XFFD8FFF4);
   static const Color textDarkColor = Color(0XFF225D55);
   static const Color blockColor = Color(0XFF383B4E);
+  static const Color listColor = Color(0XFF9B9B9B);
 
 }
