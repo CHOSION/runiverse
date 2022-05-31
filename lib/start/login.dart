@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/running/program_intro.dart';
 import 'package:runiverse/running/running.dart';
 import 'package:runiverse/start/signup.dart';
-import 'package:runiverse/running/programs.dart';
+import 'package:runiverse/running/home.dart';
 import 'package:runiverse/running/profile.dart';
 
 class LoginPage extends StatelessWidget {
@@ -76,7 +77,7 @@ class LoginPage extends StatelessWidget {
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (BuildContext context) {
-                  return Profile();
+                  return Home();
                 })
             );
           },

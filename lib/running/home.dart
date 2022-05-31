@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
 
-class Programs extends StatefulWidget {
-  const Programs({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  State<Programs> createState() => _ProgramsState();
+  State<Home> createState() => _HomeState();
 }
 
-class _ProgramsState extends State<Programs> {
+class _HomeState extends State<Home> {
 
   bool isYourPrograms = true;
 
