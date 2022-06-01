@@ -77,7 +77,7 @@ class LoginPage extends StatelessWidget {
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (BuildContext context) {
-                  return Home();
+                  return Profile();
                 })
             );
           },
@@ -115,7 +115,14 @@ class LoginPage extends StatelessWidget {
             ],
           ),
           ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              print("SignUp Pressed.");
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (BuildContext context) {
+                    return Profile();
+                  })
+              );
+            },
             icon: Image.asset('assets/apple_logo.png', width: 18.0, height: 18.0),
             style: ElevatedButton.styleFrom(
               primary: Palette.iconColor,
@@ -129,7 +136,14 @@ class LoginPage extends StatelessWidget {
           ),
           SizedBox(height: 5),
           ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              print("SignUp Pressed.");
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (BuildContext context) {
+                    return ProgramIntro();
+                  })
+              );
+            },
             icon: Image.asset('assets/google_logo.png', width: 15.0, height: 15.0),
             style: ElevatedButton.styleFrom(
               primary: Palette.iconColor,
