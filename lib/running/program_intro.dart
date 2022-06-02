@@ -17,7 +17,22 @@ class ProgramIntro extends StatelessWidget {
         children: [
           Row(
             children: [
-              Expanded(child: Column(),),
+              Expanded(
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: IconButton(
+                        padding: EdgeInsets.symmetric(horizontal: 15.0),
+                        icon: Icon(Icons.arrow_back, color: Colors.white),
+                        onPressed: (){
+                          Navigator.pop(context);
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
               Container(
                 height: height*0.8,
                 width: width*0.8,
