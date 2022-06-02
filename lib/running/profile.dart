@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/start/login.dart';
+import 'package:runiverse/running/running.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -179,22 +180,27 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
               SizedBox(height: 20),
-              Container(
-                height: height*2,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Palette.backgroundDarkColor),
-                child: ListView(
-                  children: [
-                    Card(
-                      child: ListTile(
+              if (isProgram)
+                Container(
+                  height: height * 2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Palette.backgroundDarkColor),
+                  child: ListView(
+                    children: [
+                      Card(
+                        child: ListTile(
                           onTap: () {
                             Navigator.push(context, MaterialPageRoute(
                                 builder: (BuildContext context) {
-                              return LoginPage();
+                              return Marathon();
                             }));
                           },
-                          leading: Icon(Icons.run_circle_outlined, size: 40,color: Colors.white,),
+                          leading: Icon(
+                            Icons.run_circle_outlined,
+                            size: 40,
+                            color: Colors.white,
+                          ),
                           title: Text(
                             '30min Running',
                             style: TextStyle(
@@ -205,13 +211,57 @@ class _ProfileState extends State<Profile> {
                             '22 May 2022',
                             style: TextStyle(color: Colors.grey),
                           ),
-                          trailing: Icon(Icons.arrow_forward_ios, color: Colors.white,),
-                        tileColor: Palette.blockColor,
-                      ),
-                    )
-                  ],
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white,
+                          ),
+                          tileColor: Palette.blockColor,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              )
+              if (!isProgram)
+                Container(
+                  height: height * 2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Palette.backgroundDarkColor),
+                  child: ListView(
+                    children: [
+                      Card(
+                        child: ListTile(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(
+                                builder: (BuildContext context) {
+                              return LoginPage();
+                            }));
+                          },
+                          leading: Icon(
+                            Icons.run_circle_outlined,
+                            size: 40,
+                            color: Colors.white,
+                          ),
+                          title: Text(
+                            'Distance Running',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Palette.iconColor),
+                          ),
+                          subtitle: Text(
+                            '08 May 2022',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white,
+                          ),
+                          tileColor: Palette.blockColor,
+                        ),
+                      )
+                    ],
+                  ),
+                )
             ])));
   }
 }

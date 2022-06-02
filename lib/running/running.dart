@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/running/program_intro.dart';
 
 class Marathon extends StatefulWidget {
   const Marathon({Key? key}) : super(key: key);
@@ -101,7 +102,12 @@ class _MarathonState extends State<Marathon> {
                       margin: EdgeInsets.only(top: 25),
                       child: ElevatedButton(
                         child: Text("Time Running",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (BuildContext context) {
+                                return ProgramIntro();
+                              }));
+                        },
                         style: ButtonStyle(
                             minimumSize: MaterialStateProperty.all<Size>(Size(width*0.8,100)),
                             backgroundColor: MaterialStateProperty.all<Color>(Palette.blockColor),
