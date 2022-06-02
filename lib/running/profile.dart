@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/start/login.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -68,155 +69,149 @@ class _ProfileState extends State<Profile> {
   }
 
   Widget getBody() {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.only(left: 25, right: 25),
-        child: Column(
-          children: [
-            SizedBox(height: 5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "6\'30",
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      "Pace",
-                      style: TextStyle(fontSize: 15, color: Palette.iconColor),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "38:05",
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      "Time",
-                      style: TextStyle(fontSize: 15, color: Palette.iconColor),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "5.86",
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      "Distance(km)",
-                      style: TextStyle(fontSize: 15, color: Palette.iconColor),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "478",
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      "kcal",
-                      style: TextStyle(fontSize: 15, color: Palette.iconColor),
-                    ),
-                  ],
-                )
-              ],
-            ),
-            SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                IconButton(
-                    onPressed: () {
-                      setState(() {
-                        isProgram = true;
-                      });
-                    },
-                    icon: Icon(
-                      Icons.calendar_today,
-                      size: 25,
-                      color: isProgram ? Colors.white : Colors.black54,
-                    )),
-                IconButton(
-                    onPressed: () {
-                      setState(() {
-                        isProgram = false;
-                      });
-                    },
-                    icon: Icon(
-                      Icons.comment_rounded,
-                      size: 25,
-                      color: !isProgram ? Colors.white : Colors.black54,
-                    ))
-              ],
-            ),
-            SizedBox(height: 20),
-            Column(
-              children: [
-                Card(
-                  color: Palette.blockColor,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 14.0),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.bar_chart,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(width: 15),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              "30min Runnung",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18),
-                            ),
-                            SizedBox(height: 3),
-                            Text(
-                              "28 May 2022",
-                              style:
-                                  TextStyle(color: Colors.grey, fontSize: 12),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
+        child: Padding(
+            padding: const EdgeInsets.only(left: 25, right: 25),
+            child: Column(children: [
+              SizedBox(height: 5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        "6\'30",
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Pace",
+                        style:
+                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                      ),
+                    ],
                   ),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
-    );
+                  Column(
+                    children: [
+                      Text(
+                        "38:05",
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Time",
+                        style:
+                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        "5.86",
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Distance(km)",
+                        style:
+                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        "478",
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "kcal",
+                        style:
+                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          isProgram = true;
+                        });
+                      },
+                      icon: Icon(
+                        Icons.calendar_today,
+                        size: 25,
+                        color: isProgram ? Colors.white : Colors.black54,
+                      )),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          isProgram = false;
+                        });
+                      },
+                      icon: Icon(
+                        Icons.comment_rounded,
+                        size: 25,
+                        color: !isProgram ? Colors.white : Colors.black54,
+                      ))
+                ],
+              ),
+              SizedBox(height: 20),
+              Container(
+                height: height*2,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Palette.backgroundDarkColor),
+                child: ListView(
+                  children: [
+                    Card(
+                      child: ListTile(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(
+                                builder: (BuildContext context) {
+                              return LoginPage();
+                            }));
+                          },
+                          leading: Icon(Icons.run_circle_outlined, size: 40,color: Colors.white,),
+                          title: Text(
+                            '30min Running',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Palette.iconColor),
+                          ),
+                          subtitle: Text(
+                            '22 May 2022',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          trailing: Icon(Icons.arrow_forward_ios, color: Colors.white,),
+                        tileColor: Palette.blockColor,
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ])));
   }
 }
