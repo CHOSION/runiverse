@@ -1,58 +1,81 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
 
-class ProgramIntro extends StatelessWidget {
+class ProgramIntro extends StatefulWidget {
   const ProgramIntro({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  State<ProgramIntro> createState() => _ProgramIntroState();
+}
 
+class _ProgramIntroState extends State<ProgramIntro> {
+  @override
+  Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: Palette.backgroundDarkColor,
-
       body: Column(
         children: [
-          Row(
+          Stack(
             children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: IconButton(
-                        padding: EdgeInsets.symmetric(horizontal: 15.0),
-                        icon: Icon(Icons.arrow_back, color: Colors.white),
-                        onPressed: (){
-                          Navigator.pop(context);
-                        },
-                      ),
-                    )
-                  ],
+              Image.network(
+                "https://images.pexels.com/photos/4348633/pexels-photo-4348633.jpeg?cs=srgb&dl=pexels-maksim-goncharenok-4348633.jpg&fm=jpg",
+                height: height * 0.7,
+                width: width,
+                fit: BoxFit.cover,
+              ),
+              Positioned(
+                bottom: 0.0,
+                child: Container(
+                  height: 36.0,
+                  width: width,
+                  decoration: BoxDecoration(
+                      color: Palette.backgroundDarkColor,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(40.0),
+                          topRight: Radius.circular(40.0))),
                 ),
               ),
-              Container(
-                height: height*0.8,
-                width: width*0.8,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    bottomLeft: Radius.circular(50),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0,10),
-                      blurRadius: 60,
-                      color: Colors.black54
-                    )
-                  ],
-                  image: DecorationImage(
-                    alignment: Alignment.center,
-                    fit: BoxFit.cover,
-                    image: AssetImage("assets/programIntro.jpeg"),
-                  ),
+            ],
+          ),
+          Column(
+            children: [
+              Text("30min Running",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 32.0,
+                  color: Palette.iconColor,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+              SizedBox(height: 32),
+              Text("Let\'s enjoy running\nfor 30 minutes",
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontSize: 17.0,
+                    color: Colors.white,
+                ),
+              ),
+              SizedBox(height: 28),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (BuildContext context) {
+                        return ProgramIntro();
+                      })
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Palette.iconColor,
+                  shape: StadiumBorder(),
+                  padding: EdgeInsets.symmetric(horizontal: 105,vertical: 12),
+                ),
+                child: Text(
+                  "Start",
+                  style: TextStyle(fontSize: 17),
                 ),
               )
             ],
