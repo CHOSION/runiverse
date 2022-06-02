@@ -17,6 +17,7 @@ class _ProgramIntroState extends State<ProgramIntro> {
 
     return Scaffold(
       backgroundColor: Palette.backgroundDarkColor,
+
       body: Column(
         children: [
           Stack(
@@ -27,6 +28,19 @@ class _ProgramIntroState extends State<ProgramIntro> {
                 width: width,
                 fit: BoxFit.cover,
               ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
+                child: Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      color: Colors.white,
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  ],
+                ),
+              ),
+
               Positioned(
                 bottom: 0.0,
                 child: Container(
