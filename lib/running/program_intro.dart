@@ -28,6 +28,7 @@ class _ProgramIntroState extends State<ProgramIntro> {
                 width: width,
                 fit: BoxFit.cover,
               ),
+
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
                 child: Row(
