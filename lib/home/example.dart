@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:runiverse/config/color_filters.dart';
 import 'package:runiverse/config/palette.dart';
 import '../components/search_field.dart';
 import 'package:runiverse/components/icon_btn_with_counter.dart';
@@ -69,7 +70,7 @@ class _ExampleState extends State<Example> {
                       children: [
                         SizedBox(width: 10),
                         Text(
-                          "Running Programs",
+                          "Running themes",
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -78,12 +79,85 @@ class _ExampleState extends State<Example> {
                         )
                       ],
                     ),
+                    SizedBox(height: height*0.03),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
-
+                        children: [
+                          Card(
+                            clipBehavior: Clip.antiAlias,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            ),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Ink.image(
+                                    image: NetworkImage("https://images.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg?cs=srgb&dl=pexels-pixabay-40751.jpg&fm=jpg"),
+                                    colorFilter: ColorFilters.greyscale,
+                                    height: height*0.12,
+                                    width: width*0.5,
+                                    child: InkWell(
+                                      onTap: (){},
+                                    ),
+                                    fit: BoxFit.cover),
+                                Text(
+                                  'Interval Running',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          Card(
+                            clipBehavior: Clip.antiAlias,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            ),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Ink.image(
+                                    image: NetworkImage("https://images.pexels.com/photos/1466852/pexels-photo-1466852.jpeg?cs=srgb&dl=pexels-yogendra-singh-1466852.jpg&fm=jpg"),
+                                    colorFilter: ColorFilters.greyscale,
+                                    height: height*0.12,
+                                    width: width*0.5,
+                                    child: InkWell(
+                                      onTap: (){},
+                                    ),
+                                    fit: BoxFit.cover),
+                                Text(
+                                  'Walk for Warm up',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
                       ),
-                    )
+                    ),
+                    SizedBox(height: height*0.03),
+                    Row(
+                      children: [
+                        SizedBox(width: 10),
+                        Text(
+                          "Running Programs",
+                          style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: height*0.03),
                   ],
                 ),
               )
