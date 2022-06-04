@@ -3,6 +3,7 @@ import 'package:runiverse/config/color_filters.dart';
 import 'package:runiverse/config/palette.dart';
 import '../components/search_field.dart';
 import 'package:runiverse/components/icon_btn_with_counter.dart';
+import 'package:runiverse/home/running_program_toggle_bar.dart';
 
 class Example extends StatefulWidget {
   const Example({Key? key}) : super(key: key);
@@ -12,7 +13,6 @@ class Example extends StatefulWidget {
 }
 
 class _ExampleState extends State<Example> {
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -20,151 +20,142 @@ class _ExampleState extends State<Example> {
 
     return SafeArea(
         child: Scaffold(
-          body: Column(
-            children: [
-              SizedBox(height: height*0.01),
-              SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 12.0),
-                child: Column(
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 12.0),
+        child: Column(
+          children: [
+            SizedBox(height: height * 0.01),
+            Column(
+              children: [
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        SearchField(),
-                        SizedBox(width: 10),
-                        IconBtnWithCounter(),
-                      ],
-                    ),
-                    SizedBox(height: height*0.03),
-                    Container(
-                      margin:EdgeInsets.symmetric(horizontal:4.0),
-                      padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 24.0),
-                      width: width,
-                      height: height*0.15,
-                      decoration: BoxDecoration(
-                        color: Palette.blockColor,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Text.rich(
-                          TextSpan(
-                              text: "Welcome to Runiverse\n\n",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: "(id)",
-                                  style: TextStyle(
-                                      color: Palette.iconColor,
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold
-                                  ),
-                                )
-                              ]
-                          )
-                      ),
-                    ),
-                    SizedBox(height: height*0.03),
-                    Row(
-                      children: [
-                        SizedBox(width: 10),
-                        Text(
-                          "Running themes",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(height: height*0.03),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          Card(
-                            clipBehavior: Clip.antiAlias,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)
-                            ),
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                Ink.image(
-                                    image: NetworkImage("https://images.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg?cs=srgb&dl=pexels-pixabay-40751.jpg&fm=jpg"),
-                                    colorFilter: ColorFilters.greyscale,
-                                    height: height*0.12,
-                                    width: width*0.5,
-                                    child: InkWell(
-                                      onTap: (){},
-                                    ),
-                                    fit: BoxFit.cover),
-                                Text(
-                                  'Interval Running',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Card(
-                            clipBehavior: Clip.antiAlias,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)
-                            ),
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                Ink.image(
-                                    image: NetworkImage("https://images.pexels.com/photos/1466852/pexels-photo-1466852.jpeg?cs=srgb&dl=pexels-yogendra-singh-1466852.jpg&fm=jpg"),
-                                    colorFilter: ColorFilters.greyscale,
-                                    height: height*0.12,
-                                    width: width*0.5,
-                                    child: InkWell(
-                                      onTap: (){},
-                                    ),
-                                    fit: BoxFit.cover),
-                                Text(
-                                  'Walk for Warm up',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: height*0.03),
-                    Row(
-                      children: [
-                        SizedBox(width: 10),
-                        Text(
-                          "Running Programs",
-                          style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(height: height*0.03),
+                    SearchField(),
+                    SizedBox(width: 10),
+                    IconBtnWithCounter(),
                   ],
                 ),
-              )
-            ],
-          ),
-          backgroundColor: Palette.backgroundDarkColor,
-        )
-    );
+                SizedBox(height: height * 0.03),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 4.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 30.0, vertical: 24.0),
+                  width: width,
+                  height: height * 0.15,
+                  decoration: BoxDecoration(
+                    color: Palette.blockColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text.rich(TextSpan(
+                      text: "Welcome to Runiverse\n\n",
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      children: [
+                        TextSpan(
+                          text: "(id)",
+                          style: TextStyle(
+                              color: Palette.iconColor,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ])),
+                ),
+                SizedBox(height: height * 0.03),
+                Row(
+                  children: [
+                    SizedBox(width: 10),
+                    Text(
+                      "Running themes",
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    )
+                  ],
+                ),
+                SizedBox(height: height * 0.03),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Card(
+                        clipBehavior: Clip.antiAlias,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Ink.image(
+                                image: NetworkImage(
+                                    "https://images.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg?cs=srgb&dl=pexels-pixabay-40751.jpg&fm=jpg"),
+                                colorFilter: ColorFilters.greyscale,
+                                height: height * 0.12,
+                                width: width * 0.5,
+                                child: InkWell(
+                                  onTap: () {},
+                                ),
+                                fit: BoxFit.cover),
+                            Text(
+                              'Interval Running',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                      Card(
+                        clipBehavior: Clip.antiAlias,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Ink.image(
+                                image: NetworkImage(
+                                    "https://images.pexels.com/photos/1466852/pexels-photo-1466852.jpeg?cs=srgb&dl=pexels-yogendra-singh-1466852.jpg&fm=jpg"),
+                                colorFilter: ColorFilters.greyscale,
+                                height: height * 0.12,
+                                width: width * 0.5,
+                                child: InkWell(
+                                  onTap: () {},
+                                ),
+                                fit: BoxFit.cover),
+                            Text(
+                              'Walk for Warm up',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: height * 0.03),
+                Row(
+                  children: [
+                    SizedBox(width: 10),
+                    Text(
+                      "Running Programs",
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    )
+                  ],
+                ),
+                SizedBox(height: height * 0.03),
+                ProgramToggleBar()
+              ],
+            ),
+          ],
+        ),
+      ),
+      backgroundColor: Palette.backgroundDarkColor,
+    ));
   }
 }

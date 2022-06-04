@@ -39,6 +39,7 @@ dependencies:
   sign_in_with_apple: ^4.0.0
   google_sign_in: ^5.3.1
   health: ^3.4.4
+  toggle_bar: ^1.0.0
 
 dev_dependencies:
   flutter_test:
