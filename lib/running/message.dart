@@ -103,7 +103,7 @@ class _MessagesState extends State<Messages> {
                         )
                       ),
                     ),
-                    SizedBox(height: height*0.015),
+                    SizedBox(height: height*0.018),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
