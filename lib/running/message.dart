@@ -26,7 +26,7 @@ class _MessagesState extends State<Messages> {
           width: width*0.9,
           height: height*0.6,
           decoration: BoxDecoration(
-            color: Palette.blockColor,
+            color: Palette.textDarkColor,
             borderRadius: BorderRadius.circular(15),
           ),
           child: Column(
@@ -103,12 +103,76 @@ class _MessagesState extends State<Messages> {
                         )
                       ),
                     ),
+                    SizedBox(height: height*0.015),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Row(
+                        Column(
                           children: [
-
+                            Text(
+                              "6\'30",
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                            SizedBox(height: 8),
+                            Text(
+                              "Pace",
+                              style:
+                              TextStyle(fontSize: 15, color: Palette.iconColor),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "38:05",
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                            SizedBox(height: 8),
+                            Text(
+                              "Time",
+                              style:
+                              TextStyle(fontSize: 15, color: Palette.iconColor),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "5.86",
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                            SizedBox(height: 8),
+                            Text(
+                              "Distance(km)",
+                              style:
+                              TextStyle(fontSize: 15, color: Palette.iconColor),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "478",
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                            SizedBox(height: 8),
+                            Text(
+                              "kcal",
+                              style:
+                              TextStyle(fontSize: 15, color: Palette.iconColor),
+                            ),
                           ],
                         )
                       ],
