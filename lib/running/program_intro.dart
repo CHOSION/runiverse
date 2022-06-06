@@ -17,14 +17,14 @@ class _ProgramIntroState extends State<ProgramIntro> {
 
     return Scaffold(
       backgroundColor: Palette.backgroundDarkColor,
-
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           Stack(
             children: [
               Image.network(
                 "https://images.pexels.com/photos/4348633/pexels-photo-4348633.jpeg?cs=srgb&dl=pexels-maksim-goncharenok-4348633.jpg&fm=jpg",
-                height: height * 0.7,
+                height: height * 0.65,
                 width: width,
                 fit: BoxFit.cover,
               ),
@@ -66,7 +66,7 @@ class _ProgramIntroState extends State<ProgramIntro> {
                   fontWeight: FontWeight.bold
                 ),
               ),
-              SizedBox(height: 32),
+              SizedBox(height: 24),
               Text("Let\'s enjoy running\nfor 30 minutes",
                 textAlign: TextAlign.left,
                 style: TextStyle(
@@ -74,7 +74,7 @@ class _ProgramIntroState extends State<ProgramIntro> {
                     color: Colors.white,
                 ),
               ),
-              SizedBox(height: 28),
+              SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context,

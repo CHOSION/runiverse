@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/color_filters.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/home/program_tabbar.dart';
 import '../components/search_field.dart';
 import 'package:runiverse/components/icon_btn_with_counter.dart';
-import 'package:runiverse/home/running_program_toggle_bar.dart';
+import 'package:runiverse/running/profile.dart';
+import 'package:runiverse/running/message.dart';
+import 'package:runiverse/running/program_intro.dart';
 
 class Example extends StatefulWidget {
   const Example({Key? key}) : super(key: key);
@@ -13,6 +16,14 @@ class Example extends StatefulWidget {
 }
 
 class _ExampleState extends State<Example> {
+  int _currentIndex = 0;
+  final screens = [
+    Example(),
+    Profile(),
+    Messages(),
+    ProgramIntro()
+  ];
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -20,24 +31,24 @@ class _ExampleState extends State<Example> {
 
     return SafeArea(
         child: Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 12.0),
-        child: Column(
-          children: [
-            SizedBox(height: height * 0.01),
-            Column(
+          resizeToAvoidBottomInset: false,
+          body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 12.0),
+            child: Column(
               children: [
-                Row(
+                SizedBox(height: height * 0.01),
+                Column(
+                  children: [
+                    Row(
                   children: [
                     SearchField(),
                     SizedBox(width: 10),
                     IconBtnWithCounter(),
                   ],
                 ),
-                SizedBox(height: height * 0.03),
-                Container(
+                    SizedBox(height: height * 0.03),
+                    Container(
                   margin: EdgeInsets.symmetric(horizontal: 4.0),
                   padding:
                       EdgeInsets.symmetric(horizontal: 30.0, vertical: 24.0),
@@ -60,8 +71,8 @@ class _ExampleState extends State<Example> {
                         )
                       ])),
                 ),
-                SizedBox(height: height * 0.03),
-                Row(
+                    SizedBox(height: height * 0.03),
+                    Row(
                   children: [
                     SizedBox(width: 10),
                     Text(
@@ -73,8 +84,8 @@ class _ExampleState extends State<Example> {
                     )
                   ],
                 ),
-                SizedBox(height: height * 0.03),
-                SingleChildScrollView(
+                    SizedBox(height: height * 0.03),
+                    SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
@@ -123,7 +134,7 @@ class _ExampleState extends State<Example> {
                                 ),
                                 fit: BoxFit.cover),
                             Text(
-                              'Walk for Warm up',
+                              '10000 walks',
                               style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -135,8 +146,8 @@ class _ExampleState extends State<Example> {
                     ],
                   ),
                 ),
-                SizedBox(height: height * 0.03),
-                Row(
+                    SizedBox(height: height * 0.03),
+                    Row(
                   children: [
                     SizedBox(width: 10),
                     Text(
@@ -148,8 +159,8 @@ class _ExampleState extends State<Example> {
                     )
                   ],
                 ),
-                SizedBox(height: height * 0.03),
-                ProgramToggleBar()
+                    SizedBox(height: height * 0.03),
+                    ProgramsTab()
               ],
             ),
           ],

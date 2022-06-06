@@ -173,7 +173,7 @@ class _ProfileState extends State<Profile> {
                         });
                       },
                       icon: Icon(
-                        Icons.comment_rounded,
+                        Icons.recommend,
                         size: 25,
                         color: !isProgram ? Colors.white : Colors.black54,
                       ))

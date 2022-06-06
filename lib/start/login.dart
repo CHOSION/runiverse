@@ -6,6 +6,7 @@ import 'package:runiverse/start/signup.dart';
 import 'package:runiverse/running/home.dart';
 import 'package:runiverse/running/profile.dart';
 import 'package:runiverse/home/example.dart';
+import 'package:runiverse/home/example2.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -78,7 +79,7 @@ class LoginPage extends StatelessWidget {
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (BuildContext context) {
-                  return Example();
+                  return ExampleTest();
                 })
             );
           },
