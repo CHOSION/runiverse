@@ -3,6 +3,7 @@ import 'package:runiverse/config/color_filters.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/home/program_tabbar.dart';
 import '../components/search_field.dart';
+import 'package:runiverse/components/main_logo.dart';
 import 'package:runiverse/components/icon_btn_with_counter.dart';
 import 'package:runiverse/running/profile.dart';
 import 'package:runiverse/running/message.dart';
@@ -37,16 +38,16 @@ class _ExampleState extends State<Example> {
             padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 12.0),
             child: Column(
               children: [
-                SizedBox(height: height * 0.01),
                 Column(
                   children: [
                     Row(
-                  children: [
-                    SearchField(),
-                    SizedBox(width: 10),
-                    IconBtnWithCounter(),
-                  ],
-                ),
+                      children: [
+                        SizedBox(height: height * 0.01),
+                        MainLogoBtn(),
+                        SizedBox(width: 8),
+                        IconBtnWithCounter(),
+                      ],
+                    ),
                     SizedBox(height: height * 0.03),
                     Container(
                   margin: EdgeInsets.symmetric(horizontal: 4.0),
