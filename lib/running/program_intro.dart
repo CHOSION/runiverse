@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/running/running.dart';
 
 class ProgramIntro extends StatefulWidget {
   const ProgramIntro({Key? key}) : super(key: key);
@@ -74,12 +75,12 @@ class _ProgramIntroState extends State<ProgramIntro> {
                     color: Colors.white,
                 ),
               ),
-              SizedBox(height: 24),
+              SizedBox(height: 32),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (BuildContext context) {
-                        return ProgramIntro();
+                        return Running();
                       })
                   );
                 },
@@ -89,7 +90,26 @@ class _ProgramIntroState extends State<ProgramIntro> {
                   padding: EdgeInsets.symmetric(horizontal: 105,vertical: 12),
                 ),
                 child: Text(
-                  "Start",
+                  "Start Running",
+                  style: TextStyle(fontSize: 17),
+                ),
+              ),
+              SizedBox(height: 8),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (BuildContext context) {
+                        return Running();
+                      })
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Palette.iconColor,
+                  shape: StadiumBorder(),
+                  padding: EdgeInsets.symmetric(horizontal: 91,vertical: 12),
+                ),
+                child: Text(
+                  "Check Messages",
                   style: TextStyle(fontSize: 17),
                 ),
               )

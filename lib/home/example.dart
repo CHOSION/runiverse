@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:runiverse/config/color_filters.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/home/program_tabbar.dart';
-import '../components/search_field.dart';
 import 'package:runiverse/components/main_logo.dart';
 import 'package:runiverse/components/icon_btn_with_counter.dart';
 import 'package:runiverse/running/profile.dart';

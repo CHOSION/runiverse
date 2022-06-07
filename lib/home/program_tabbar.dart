@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/running/program_intro.dart';
 import 'package:runiverse/start/login.dart';
 import 'package:runiverse/running/running.dart';
 
@@ -22,7 +23,7 @@ class _ProgramsTabState extends State<ProgramsTab> {
 
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.only(left: 25, right: 25),
+        padding: const EdgeInsets.only(left: 12, right: 12),
         child: Column(
           children: [
             Row(
@@ -57,7 +58,7 @@ class _ProgramsTabState extends State<ProgramsTab> {
               Container(
                 height: height * 2,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(15),
                     color: Palette.backgroundDarkColor),
                 child: ListView(
                   children: [
@@ -66,7 +67,7 @@ class _ProgramsTabState extends State<ProgramsTab> {
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(
                               builder: (BuildContext context) {
-                                return Marathon();
+                                return ProgramIntro();
                               }));
                         },
                         leading: Icon(

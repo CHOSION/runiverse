@@ -193,7 +193,7 @@ class _ProfileState extends State<Profile> {
                           onTap: () {
                             Navigator.push(context, MaterialPageRoute(
                                 builder: (BuildContext context) {
-                              return Marathon();
+                              return Running();
                             }));
                           },
                           leading: Icon(

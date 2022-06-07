@@ -35,6 +35,20 @@ class _MessagesState extends State<Messages> {
                 IconBtnWithCounter(),
               ],
             ),
+            SizedBox(height: height * 0.03),
+            Row(
+              children: [
+                SizedBox(width: 20),
+                Text(
+                  "Certifications",
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                )
+              ],
+            ),
+            SizedBox(height: height * 0.03),
             Chat(),
             Chat(),
             Chat(),
