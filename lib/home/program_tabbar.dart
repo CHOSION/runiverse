@@ -14,6 +14,7 @@ class ProgramsTab extends StatefulWidget {
 class _ProgramsTabState extends State<ProgramsTab> {
 
   bool isProgram = true;
+  bool isLiked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -81,13 +82,19 @@ class _ProgramsTabState extends State<ProgramsTab> {
                               fontWeight: FontWeight.bold,
                               color: Palette.iconColor),
                         ),
-                        subtitle: Text(
-                          '22 May 2022',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        trailing: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.white,
+                        // subtitle: Text(
+                        //   '22 May 2022',
+                        //   style: TextStyle(color: Colors.grey),
+                        // ),
+                        trailing: IconButton(
+                          icon: isLiked
+                              ? Icon(Icons.favorite_border, color: Palette.iconColor)
+                              : Icon(Icons.favorite, color: Palette.iconColor),
+                          onPressed: () {
+                            setState(() {
+                              isLiked = !isLiked;
+                            });
+                          },
                         ),
                         tileColor: Palette.blockColor,
                       ),
@@ -112,19 +119,15 @@ class _ProgramsTabState extends State<ProgramsTab> {
                               }));
                         },
                         leading: Icon(
-                          Icons.run_circle_outlined,
-                          size: 40,
+                          Icons.star,
+                          size: 32,
                           color: Colors.white,
                         ),
                         title: Text(
-                          'Distance Running',
+                          '(Program Name)',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Palette.iconColor),
-                        ),
-                        subtitle: Text(
-                          '08 May 2022',
-                          style: TextStyle(color: Colors.grey),
                         ),
                         trailing: Icon(
                           Icons.arrow_forward_ios,

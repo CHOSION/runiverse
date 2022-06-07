@@ -202,13 +202,13 @@ class _ProfileState extends State<Profile> {
                             color: Colors.white,
                           ),
                           title: Text(
-                            '30min Running',
+                            '(Program Name)',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Palette.iconColor),
                           ),
                           subtitle: Text(
-                            '22 May 2022',
+                            '(Date)',
                             style: TextStyle(color: Colors.grey),
                           ),
                           trailing: Icon(
@@ -238,23 +238,19 @@ class _ProfileState extends State<Profile> {
                             }));
                           },
                           leading: Icon(
-                            Icons.run_circle_outlined,
+                            Icons.recommend,
                             size: 40,
                             color: Colors.white,
                           ),
                           title: Text(
-                            'Distance Running',
+                            '(Award Name)',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Palette.iconColor),
                           ),
                           subtitle: Text(
-                            '08 May 2022',
+                            '(Date)',
                             style: TextStyle(color: Colors.grey),
-                          ),
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.white,
                           ),
                           tileColor: Palette.blockColor,
                         ),
