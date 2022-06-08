@@ -28,7 +28,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
-    sdk: flutter
+    sdk: flutterf
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -40,6 +40,9 @@ dependencies:
   google_sign_in: ^5.3.1
   health: ^3.4.4
   toggle_bar: ^1.0.0
+  google_maps_flutter: ^2.1.7
+  geolocator: ^8.2.1
+  pedometer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
