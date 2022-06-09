@@ -21,7 +21,6 @@ class _IconBtnWithCounterState extends State<IconBtnWithCounter> {
     return InkWell(
       onTap: (){},
       child: Stack(
-        overflow: Overflow.visible,
         children: [
           Container(
             padding: EdgeInsets.only(left: 6,right: 5,top: 5,bottom: 5),
