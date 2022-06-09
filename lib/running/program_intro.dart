@@ -81,7 +81,7 @@ class _ProgramIntroState extends State<ProgramIntro> {
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (BuildContext context) {
-                        return runningVer2();
+                        return Running();
                       })
                   );
                 },
