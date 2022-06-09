@@ -1,8 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:location/location.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:runiverse/config/palette.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'google_map_api.dart';
 
 class Running extends StatefulWidget {
   @override
@@ -10,70 +13,165 @@ class Running extends StatefulWidget {
 }
 
 class RunningState extends State<Running> {
+  LatLng sourceLocation = LatLng(28.432864, 77.002563);
+  LatLng destinationLatlng = LatLng(28.431626, 77.002475);
+
   Completer<GoogleMapController> _controller = Completer();
-  late GoogleMapController newGoogleMapController;
 
-  late Position currentPosition;
-  var geolocator = Geolocator();
-  double bottomPaddingOfMap = 0;
+  Set<Marker> _marker = Set<Marker>();
 
-  void locatePosition() async {
-    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    currentPosition = position;
+  Set<Polyline> _polylines = Set<Polyline>();
+  List<LatLng> polylineCoordinates = [];
+  late PolylinePoints polylinePoints;
 
-    LatLng latLatPosition = LatLng(position.latitude, position.longitude);
+  late StreamSubscription<LocationData> subscription;
 
-    CameraPosition cameraPosition = new CameraPosition(target: latLatPosition, zoom: 14);
-    newGoogleMapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+  LocationData? currentLocation;
+  late LocationData destinationLocation;
+  late Location location;
+
+  @override
+  void initState() {
+    super.initState();
+
+    location = Location();
+    polylinePoints = PolylinePoints();
+
+    subscription = location.onLocationChanged.listen((clocation) {
+      currentLocation = clocation;
+
+      updatePinsOnMap();
+    });
+
+    setInitialLocation();
   }
 
-  // 초기 카메라 위치
-  static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
-  );
+  void setInitialLocation() async {
+    await location.getLocation().then((value) {
+      currentLocation = value;
+      setState(() {});
+    });
 
-  // 호수 위치
-  static final CameraPosition _kLake = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(37.43296265331129, -122.08832357078792),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
+    destinationLocation = LocationData.fromMap({
+      "latitude": destinationLatlng.latitude,
+      "longitude": destinationLatlng.longitude,
+    });
+  }
+
+  void showLocationPins() {
+    var sourceposition = LatLng(
+        currentLocation!.latitude ?? 0.0, currentLocation!.longitude ?? 0.0);
+
+    var destinationPosition =
+    LatLng(destinationLatlng.latitude, destinationLatlng.longitude);
+
+    _marker.add(Marker(
+      markerId: MarkerId('sourcePosition'),
+      position: sourceposition,
+    ));
+
+    _marker.add(
+      Marker(
+        markerId: MarkerId('destinationPosition'),
+        position: destinationPosition,
+      ),
+    );
+
+    setPolylinesInMap();
+  }
+
+  void setPolylinesInMap() async {
+    var result = await polylinePoints.getRouteBetweenCoordinates(
+      GoogleMapApi().url,
+      PointLatLng(
+          currentLocation!.latitude ?? 0.0, currentLocation!.longitude ?? 0.0),
+      PointLatLng(destinationLatlng.latitude, destinationLatlng.longitude),
+    );
+
+    if (result.points.isNotEmpty) {
+      result.points.forEach((pointLatLng) {
+        polylineCoordinates
+            .add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
+      });
+    }
+
+    setState(() {
+      _polylines.add(Polyline(
+        width: 5,
+        polylineId: PolylineId('polyline'),
+        color: Colors.blueAccent,
+        points: polylineCoordinates,
+      ));
+    });
+  }
+
+  void updatePinsOnMap() async {
+    CameraPosition cameraPosition = CameraPosition(
+      zoom: 20,
+      tilt: 80,
+      bearing: 30,
+      target: LatLng(
+          currentLocation!.latitude ?? 0.0, currentLocation!.longitude ?? 0.0),
+    );
+
+    final GoogleMapController controller = await _controller.future;
+
+    controller.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+
+    var sourcePosition = LatLng(
+        currentLocation!.latitude ?? 0.0, currentLocation!.longitude ?? 0.0);
+
+    setState(() {
+      _marker.removeWhere((marker) => marker.mapsId.value == 'sourcePosition');
+
+      _marker.add(Marker(
+        markerId: MarkerId('sourcePosition'),
+        position: sourcePosition,
+      ));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: GoogleMap(
-        padding: EdgeInsets.only(bottom: bottomPaddingOfMap),
-        mapType: MapType.normal,
-        myLocationButtonEnabled: true,
-        initialCameraPosition: _kGooglePlex, // 초기 카메라 위치
-        myLocationEnabled: true,
-        zoomGesturesEnabled: true,
-        zoomControlsEnabled: true,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-          newGoogleMapController = controller;
+    CameraPosition initialCameraPosition = CameraPosition(
+      zoom: 20,
+      tilt: 80,
+      bearing: 30,
+      target: currentLocation != null
+          ? LatLng(currentLocation!.latitude ?? 0.0,
+          currentLocation!.longitude ?? 0.0)
+          : LatLng(0.0, 0.0),
+    );
 
-          setState(() {
-            bottomPaddingOfMap = 265.0;
-          });
+    return currentLocation == null
+        ? Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      alignment: Alignment.center,
+      child: CircularProgressIndicator(),
+    )
+        : SafeArea(
+      child: Scaffold(
+        body: GoogleMap(
+          myLocationButtonEnabled: true,
+          compassEnabled: true,
+          markers: _marker,
+          polylines: _polylines,
+          mapType: MapType.normal,
+          initialCameraPosition: initialCameraPosition,
+          onMapCreated: (GoogleMapController controller) {
+            _controller.complete(controller);
 
-          locatePosition();
-        },
-      ),
-
-      // floatingActionButton을 누르게 되면 _goToTheLake 실행된다.
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToTheLake,
-        label: Text('Stop Running'),
-        icon: Icon(Icons.run_circle_outlined),
+            showLocationPins();
+          },
+        ),
       ),
     );
   }
 
-  Future<void> _goToTheLake() async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+  @override
+  void dispose() {
+    subscription.cancel();
+    super.dispose();
   }
 }
