@@ -15,6 +15,7 @@ class RunningState extends State<Running> {
 
   late Position currentPosition;
   var geolocator = Geolocator();
+  double bottomPaddingOfMap = 0;
 
   void locatePosition() async {
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
@@ -43,6 +44,7 @@ class RunningState extends State<Running> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: GoogleMap(
+        padding: EdgeInsets.only(bottom: bottomPaddingOfMap),
         mapType: MapType.normal,
         myLocationButtonEnabled: true,
         initialCameraPosition: _kGooglePlex, // 초기 카메라 위치
@@ -52,6 +54,10 @@ class RunningState extends State<Running> {
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
           newGoogleMapController = controller;
+
+          setState(() {
+            bottomPaddingOfMap = 265.0;
+          });
 
           locatePosition();
         },

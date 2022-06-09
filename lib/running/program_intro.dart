@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/running/running.dart';
+import 'package:runiverse/running/running_ver2.dart';
 
 class ProgramIntro extends StatefulWidget {
   const ProgramIntro({Key? key}) : super(key: key);
@@ -80,7 +81,7 @@ class _ProgramIntroState extends State<ProgramIntro> {
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (BuildContext context) {
-                        return Running();
+                        return runningVer2();
                       })
                   );
                 },
