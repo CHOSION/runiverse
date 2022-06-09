@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:html';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -10,6 +12,20 @@ class Running extends StatefulWidget {
 
 class RunningState extends State<Running> {
   Completer<GoogleMapController> _controller = Completer();
+  late GoogleMapController newGoogleMapController;
+
+  late Position currentPosition;
+  var geolocator = Geolocator();
+
+  void locatePosition() async {
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    currentPosition = position;
+
+    LatLng latLatPosition = LatLng(position.latitude, position.longitude);
+
+    CameraPosition cameraPosition = new CameraPosition(target: latLatPosition, zoom: 14);
+    newGoogleMapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+  }
 
   // 초기 카메라 위치
   static final CameraPosition _kGooglePlex = CameraPosition(
@@ -28,18 +44,25 @@ class RunningState extends State<Running> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: GoogleMap(
-        mapType: MapType.hybrid,
+        mapType: MapType.normal,
+        myLocationButtonEnabled: true,
         initialCameraPosition: _kGooglePlex, // 초기 카메라 위치
+        myLocationEnabled: true,
+        zoomGesturesEnabled: true,
+        zoomControlsEnabled: true,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
+          newGoogleMapController = controller;
+
+          locatePosition();
         },
       ),
 
       // floatingActionButton을 누르게 되면 _goToTheLake 실행된다.
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _goToTheLake,
-        label: Text('To the lake!'),
-        icon: Icon(Icons.directions_boat),
+        label: Text('Stop Running'),
+        icon: Icon(Icons.run_circle_outlined),
       ),
     );
   }
