@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/running/example.dart';
 import 'package:runiverse/running/running.dart';
 import 'package:runiverse/running/running_ver2.dart';
 
@@ -100,7 +101,7 @@ class _ProgramIntroState extends State<ProgramIntro> {
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (BuildContext context) {
-                        return runningVer2();
+                        return Example();
                       })
                   );
                 },

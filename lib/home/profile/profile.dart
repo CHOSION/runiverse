@@ -34,19 +34,19 @@ class _ProfileState extends State<Profile> {
         backgroundColor: Palette.backgroundDarkColor,
         flexibleSpace: SafeArea(
             child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 75,
-              height: 75,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(28),
-                  border: Border.all(color: Palette.iconColor)),
-              child: Center(
-                child: Container(
-                  width: 70,
-                  height: 70,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 75,
+                  height: 75,
                   decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(28),
+                      border: Border.all(color: Palette.iconColor)),
+                  child: Center(
+                    child: Container(
+                      width: 70,
+                      height: 70,
+                      decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       image: DecorationImage(
                           image: NetworkImage(
