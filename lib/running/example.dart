@@ -181,27 +181,27 @@ class _ExampleState extends State<Example> {
                       Padding(
                         padding: EdgeInsets.only(top: 30)
                       ),
-                      Text(
-                        '547m taken'.toUpperCase(),
-                        style: TextStyle(
-                          color: Palette.iconColor,
-                          fontFamily: MyFontFamily.Bebas,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                      Text(
-                        'Ran 4 minutes today.',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                        ),
-                      )
+                      // Text(
+                      //   '547m taken'.toUpperCase(),
+                      //   style: TextStyle(
+                      //     color: Palette.iconColor,
+                      //     fontFamily: MyFontFamily.Bebas,
+                      //     fontSize: 24,
+                      //     fontWeight: FontWeight.bold
+                      //   ),
+                      // ),
+                      // Text(
+                      //   'Ran 4 minutes today.',
+                      //   style: TextStyle(
+                      //     color: Colors.white,
+                      //     fontSize: 16,
+                      //   ),
+                      // )
                     ],
                   ),
                 ),
                 Divider(
-                  height: 45,
+                  height: 40,
                   color: Colors.grey[300],
                 ),
                 Container(
@@ -325,7 +325,7 @@ class _ExampleState extends State<Example> {
                   ),
                 ),
                 Divider(
-                  height: 45,
+                  height: 40,
                   color: Colors.grey[300],
                 ),
               ],
