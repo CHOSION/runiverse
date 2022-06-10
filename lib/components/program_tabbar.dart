@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/running/program_intro.dart';
 import 'package:runiverse/start/login.dart';
-import 'package:runiverse/running/running.dart';
 
 class ProgramsTab extends StatefulWidget {
   const ProgramsTab({Key? key}) : super(key: key);

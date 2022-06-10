@@ -1,57 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/color_filters.dart';
 import 'package:runiverse/config/palette.dart';
-import 'package:runiverse/home/program_tabbar.dart';
+import 'package:runiverse/components/program_tabbar.dart';
 import 'package:runiverse/components/main_logo.dart';
 import 'package:runiverse/components/icon_btn_with_counter.dart';
-import 'package:runiverse/running/profile.dart';
-import 'package:runiverse/running/message.dart';
-import 'package:runiverse/running/program_intro.dart';
 
-class Example extends StatefulWidget {
-  const Example({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  State<Example> createState() => _ExampleState();
+  State<Home> createState() => _HomeState();
 }
 
-class _ExampleState extends State<Example> {
-  int _currentIndex = 0;
-  final screens = [
-    Example(),
-    Profile(),
-    Messages(),
-    ProgramIntro()
-  ];
+class _HomeState extends State<Home> {
+  bool isYourPrograms = true;
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    return SafeArea(
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          body: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 12.0),
-            child: Column(
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 12.0),
+        child: Column(
+          children: [
+            Column(
               children: [
-                Column(
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        SizedBox(height: height * 0.01),
-                        MainLogoBtn(),
-                        SizedBox(width: 8),
-                        IconBtnWithCounter(),
-                      ],
-                    ),
-                    SizedBox(height: height * 0.03),
-                    Container(
+                    SizedBox(height: height * 0.01),
+                    MainLogoBtn(),
+                    SizedBox(width: 8),
+                    IconBtnWithCounter(),
+                  ],
+                ),
+                SizedBox(height: height * 0.03),
+                Container(
                   margin: EdgeInsets.symmetric(horizontal: 4.0),
                   padding:
-                      EdgeInsets.symmetric(horizontal: 30.0, vertical: 24.0),
+                  EdgeInsets.symmetric(horizontal: 30.0, vertical: 24.0),
                   width: width,
                   height: height * 0.15,
                   decoration: BoxDecoration(
@@ -71,8 +61,8 @@ class _ExampleState extends State<Example> {
                         )
                       ])),
                 ),
-                    SizedBox(height: height * 0.03),
-                    Row(
+                SizedBox(height: height * 0.03),
+                Row(
                   children: [
                     SizedBox(width: 10),
                     Text(
@@ -84,8 +74,8 @@ class _ExampleState extends State<Example> {
                     )
                   ],
                 ),
-                    SizedBox(height: height * 0.03),
-                    SingleChildScrollView(
+                SizedBox(height: height * 0.03),
+                SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
@@ -146,8 +136,8 @@ class _ExampleState extends State<Example> {
                     ],
                   ),
                 ),
-                    SizedBox(height: height * 0.03),
-                    Row(
+                SizedBox(height: height * 0.03),
+                Row(
                   children: [
                     SizedBox(width: 10),
                     Text(
@@ -159,14 +149,14 @@ class _ExampleState extends State<Example> {
                     )
                   ],
                 ),
-                    SizedBox(height: height * 0.03),
-                    ProgramsTab()
+                SizedBox(height: height * 0.03),
+                ProgramsTab()
               ],
             ),
           ],
         ),
       ),
       backgroundColor: Palette.backgroundDarkColor,
-    ));
+    );
   }
 }

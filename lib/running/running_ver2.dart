@@ -5,7 +5,7 @@ import 'package:location/location.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:runiverse/config/palette.dart';
-import 'google_map_api.dart';
+import '../components/google_map_api.dart';
 
 class runningVer2 extends StatefulWidget {
   const runningVer2({Key? key}) : super(key: key);

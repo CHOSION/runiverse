@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:runiverse/config/color_filters.dart';
 import 'package:runiverse/config/palette.dart';
-import 'package:runiverse/home/program_tabbar.dart';
-import 'package:runiverse/home/example.dart';
-import '../components/search_field.dart';
-import 'package:runiverse/components/icon_btn_with_counter.dart';
-import 'package:runiverse/running/profile.dart';
-import 'package:runiverse/running/message.dart';
-import 'package:runiverse/running/other_program.dart';
+import 'package:runiverse/home/home.dart';
+import 'package:runiverse/home/profile/profile.dart';
+import 'package:runiverse/home/messages/message.dart';
+import 'package:runiverse/home/external/other_program.dart';
 
-class ExampleTest extends StatefulWidget {
-  const ExampleTest({Key? key}) : super(key: key);
+class RuniverseMain extends StatefulWidget {
+  const RuniverseMain({Key? key}) : super(key: key);
 
   @override
-  State<ExampleTest> createState() => _ExampleTestState();
+  State<RuniverseMain> createState() => _RuniverseMainState();
 }
 
-class _ExampleTestState extends State<ExampleTest> {
+class _RuniverseMainState extends State<RuniverseMain> {
+
   int _currentIndex = 0;
+
   final screens = [
-    Example(),
+    Home(),
     Profile(),
     Messages(),
     Others()
@@ -76,3 +74,4 @@ class _ExampleTestState extends State<ExampleTest> {
         ));
   }
 }
+

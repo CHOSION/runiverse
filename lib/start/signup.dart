@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/start/login.dart';
-import 'package:runiverse/running/home.dart';
+import 'package:runiverse/home/home.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);

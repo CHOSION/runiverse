@@ -33,21 +33,22 @@ class _IconBtnWithCounterState extends State<IconBtnWithCounter> {
             child: IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
           ),
           Positioned(
-            top: -3,
-            right: -3,
+            top: 4,
+            right: 4,
             child: Container(
               height: 18,
               width: 18,
               decoration: BoxDecoration(
-                color: Color(0xFFFF4848),
-                shape: BoxShape.circle,
+                color: Palette.iconColor,
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(15)
               ),
               child: Center(
                 child: Text("3",
                   style: TextStyle(
                       fontSize: 12,
                       height: 1,
-                      color: Colors.white,
+                      color: Colors.black54,
                       fontWeight: FontWeight.w600
                   ),
                 ),

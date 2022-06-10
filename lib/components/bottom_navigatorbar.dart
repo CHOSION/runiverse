@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
-import 'package:runiverse/home/example.dart';
-import 'package:runiverse/running/profile.dart';
-import 'package:runiverse/running/message.dart';
-import 'package:runiverse/running/program_intro.dart';
+import 'package:runiverse/running/example.dart';
+import 'package:runiverse/home/profile/profile.dart';
+import 'package:runiverse/home/messages/message.dart';
+import 'package:runiverse/home/external/other_program.dart';
 
 
 class BottomNavBar extends StatefulWidget {
@@ -14,8 +14,13 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-
   int _currentIndex = 0;
+  final screens = [
+    Example(),
+    Profile(),
+    Messages(),
+    Others()
+  ];
 
   @override
   Widget build(BuildContext context) {

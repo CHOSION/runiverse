@@ -3,7 +3,7 @@ import 'package:runiverse/components/main_logo.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/components/main_logo.dart';
 import 'package:runiverse/components/icon_btn_with_counter.dart';
-import 'package:runiverse/running/chat.dart';
+import 'package:runiverse/components/chat.dart';
 
 class Messages extends StatefulWidget {
   const Messages({Key? key}) : super(key: key);
