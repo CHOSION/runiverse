@@ -4,7 +4,7 @@ import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/config/font.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:runiverse/running/countdown.dart';
+import 'package:runiverse/running/countup.dart';
 
 class Example extends StatefulWidget {
   const Example({Key? key}) : super(key: key);
@@ -330,7 +330,7 @@ class _ExampleState extends State<Example> {
                   height: 40,
                   color: Colors.grey[300],
                 ),
-                Countdown()
+                CountUp()
               ],
             ),
           ),

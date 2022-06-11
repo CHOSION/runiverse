@@ -26,6 +26,7 @@ class _CountdownState extends State<Countdown> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
 
@@ -56,23 +57,50 @@ class _CountdownState extends State<Countdown> {
                 value: seconds.toString().padLeft(2, '0')),
           ],
         ),
-        SizedBox(height: 60),
         Container(
           width: 200,
           height: 47,
           margin: EdgeInsets.only(top: 30),
-          child: RaisedButton(
-            color: Colors.pink[200],
+          child:
+          RaisedButton(
+            color: isActive ? Colors.redAccent : Palette.blockColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25)),
-            child: Text(isActive ? 'STOP' : 'START'),
+            child: Text(
+              isActive ? 'PAUSE' : 'RESTART',
+              style: TextStyle(
+                  color: Colors.white
+              ),
+            ),
             onPressed: () {
               setState(() {
                 isActive = !isActive;
               });
             },
           ),
-        )
+        ),
+        Container(
+          width: 200,
+          height: 47,
+          margin: EdgeInsets.only(top: 10),
+          child:
+          RaisedButton(
+            color: Colors.redAccent,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25)),
+            child: Text(
+              isActive ? 'STOP' : 'START',
+              style: TextStyle(
+                  color: Colors.white
+              ),
+            ),
+            onPressed: () {
+              setState(() {
+                isActive = !isActive;
+              });
+            },
+          ),
+        ),
       ],
     );
   }
