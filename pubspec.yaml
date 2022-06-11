@@ -40,6 +40,7 @@ dependencies:
   sign_in_with_apple: ^4.0.0
   google_sign_in: ^5.3.1
   camera: ^0.9.8
+  image_picker: ^0.8.5+3
   health: ^3.4.4
   pedometer: ^3.0.0
   google_maps_flutter: ^2.1.7
