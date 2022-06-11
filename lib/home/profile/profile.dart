@@ -260,7 +260,7 @@ class _ProfileState extends State<Profile> {
                             color: Colors.white,
                           ),
                           title: Text(
-                            '(Award Name)',
+                            '1st Trial',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Palette.iconColor),

@@ -291,7 +291,7 @@ class RunningState extends State<Running> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Text(
-                                  'Heart Rate',
+                                  'Pace',
                                   style: TextStyle(
                                       color: Palette.iconColor,
                                       fontFamily: MyFontFamily.Bebas,
@@ -303,7 +303,7 @@ class RunningState extends State<Running> {
                                     text: TextSpan(
                                         children: [
                                           TextSpan(
-                                              text: '104',
+                                              text: '6.04',
                                               style: TextStyle(
                                                   color: Palette.iconColor,
                                                   fontSize: 20,
@@ -311,7 +311,7 @@ class RunningState extends State<Running> {
                                               )
                                           ),
                                           TextSpan(
-                                              text: ' bpm',
+                                              text: '\/mi',
                                               style: TextStyle(
                                                   color: Colors.grey,
                                                   fontWeight: FontWeight.bold
