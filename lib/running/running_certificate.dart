@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/config/font.dart';
-import 'package:runiverse/components/icon_btn_with_counter.dart';
 
 class RunningCertificate extends StatefulWidget {
   const RunningCertificate({Key? key}) : super(key: key);
@@ -79,7 +78,7 @@ class _RunningCertificateState extends State<RunningCertificate> {
                                         fontSize: 10,
                                         height: 1,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w600
+                                        fontWeight: FontWeight.w900
                                     ),
                                   ),
                                 ),
