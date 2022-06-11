@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/components/main_logo.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/config/font.dart';
 import 'package:runiverse/components/main_logo.dart';
 import 'package:runiverse/components/icon_btn_with_counter.dart';
 import 'package:runiverse/components/chat.dart';
@@ -44,7 +45,9 @@ class _MessagesState extends State<Messages> {
                   style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                      color: Colors.white,
+                    fontFamily: MyFontFamily.Bebas
+                  ),
                 )
               ],
             ),

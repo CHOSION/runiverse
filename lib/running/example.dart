@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/config/font.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:runiverse/running/countup.dart';
 
 class Example extends StatefulWidget {

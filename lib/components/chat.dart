@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/config/font.dart';
 
 class Chat extends StatefulWidget {
   const Chat({Key? key}) : super(key: key);
@@ -63,12 +64,14 @@ class _ChatState extends State<Chat> {
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
+                        fontFamily: MyFontFamily.Bebas
                       ),
                     ),
                     subtitle: Text(
                       "(num) likes",
                       style: TextStyle(
-                          color: Colors.white60
+                          color: Colors.white60,
+                          fontFamily: MyFontFamily.Bebas
                       ),
                     ),
                     trailing: IconButton(
@@ -112,13 +115,17 @@ class _ChatState extends State<Chat> {
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Colors.white,
+                                fontFamily: MyFontFamily.Bebas),
                           ),
                           SizedBox(height: 8),
                           Text(
                             "Pace",
                             style:
-                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                            TextStyle(
+                                fontSize: 15, color: Palette.iconColor,
+                                fontFamily: MyFontFamily.Bebas
+                            ),
                           ),
                         ],
                       ),
@@ -129,13 +136,15 @@ class _ChatState extends State<Chat> {
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Colors.white,
+                                fontFamily: MyFontFamily.Bebas),
                           ),
                           SizedBox(height: 8),
                           Text(
                             "Time",
                             style:
-                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                            TextStyle(fontSize: 15, color: Palette.iconColor,
+                                fontFamily: MyFontFamily.Bebas),
                           ),
                         ],
                       ),
@@ -146,13 +155,15 @@ class _ChatState extends State<Chat> {
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Colors.white,
+                                fontFamily: MyFontFamily.Bebas),
                           ),
                           SizedBox(height: 8),
                           Text(
                             "Distance(km)",
                             style:
-                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                            TextStyle(fontSize: 15, color: Palette.iconColor,
+                                fontFamily: MyFontFamily.Bebas),
                           ),
                         ],
                       ),
@@ -163,13 +174,15 @@ class _ChatState extends State<Chat> {
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                                color: Colors.white,
+                                fontFamily: MyFontFamily.Bebas),
                           ),
                           SizedBox(height: 8),
                           Text(
                             "kcal",
                             style:
-                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                            TextStyle(fontSize: 15, color: Palette.iconColor,
+                                fontFamily: MyFontFamily.Bebas),
                           ),
                         ],
                       )

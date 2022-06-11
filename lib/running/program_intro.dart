@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/config/font.dart';
 import 'package:runiverse/running/example.dart';
 import 'package:runiverse/running/running.dart';
-import 'package:runiverse/running/running_ver2.dart';
 
 class ProgramIntro extends StatefulWidget {
   const ProgramIntro({Key? key}) : super(key: key);
@@ -66,7 +66,8 @@ class _ProgramIntroState extends State<ProgramIntro> {
                 style: TextStyle(
                   fontSize: 32.0,
                   color: Palette.iconColor,
-                  fontWeight: FontWeight.bold
+                  fontWeight: FontWeight.bold,
+                  fontFamily: MyFontFamily.Bebas
                 ),
               ),
               SizedBox(height: 24),
@@ -89,11 +90,12 @@ class _ProgramIntroState extends State<ProgramIntro> {
                 style: ElevatedButton.styleFrom(
                   primary: Palette.iconColor,
                   shape: StadiumBorder(),
-                  padding: EdgeInsets.symmetric(horizontal: 105,vertical: 12),
+                  padding: EdgeInsets.symmetric(horizontal: 96,vertical: 12),
                 ),
                 child: Text(
                   "Start Running",
-                  style: TextStyle(fontSize: 17),
+                  style: TextStyle(fontSize: 17,
+                      fontFamily: MyFontFamily.Bebas),
                 ),
               ),
               SizedBox(height: 8),
@@ -112,7 +114,8 @@ class _ProgramIntroState extends State<ProgramIntro> {
                 ),
                 child: Text(
                   "Check Messages",
-                  style: TextStyle(fontSize: 17),
+                  style: TextStyle(fontSize: 17,
+                      fontFamily: MyFontFamily.Bebas),
                 ),
               )
             ],

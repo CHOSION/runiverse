@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/color_filters.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/config/font.dart';
 import 'package:runiverse/components/program_tabbar.dart';
 import 'package:runiverse/components/main_logo.dart';
 import 'package:runiverse/components/icon_btn_with_counter.dart';
@@ -50,7 +51,7 @@ class _HomeState extends State<Home> {
                   ),
                   child: Text.rich(TextSpan(
                       text: "Welcome to Runiverse\n\n",
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      style: TextStyle(fontSize: 18, color: Colors.white, fontFamily: MyFontFamily.Bebas),
                       children: [
                         TextSpan(
                           text: "(id)",
@@ -70,7 +71,8 @@ class _HomeState extends State<Home> {
                       style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                          color: Colors.white, fontFamily: MyFontFamily.Bebas
+                      ),
                     )
                   ],
                 ),
@@ -101,7 +103,8 @@ class _HomeState extends State<Home> {
                               style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  color: Colors.white
+                              ),
                             )
                           ],
                         ),
@@ -145,7 +148,7 @@ class _HomeState extends State<Home> {
                       style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                          color: Colors.white, fontFamily: MyFontFamily.Bebas),
                     )
                   ],
                 ),

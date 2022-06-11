@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:runiverse/components/main_logo.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/config/color_filters.dart';
+import 'package:runiverse/config/font.dart';
 
 class Others extends StatefulWidget {
   const Others({Key? key}) : super(key: key);
@@ -39,7 +40,9 @@ class _OthersState extends State<Others> {
                     style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: Colors.white,
+                      fontFamily: MyFontFamily.Bebas
+                    ),
                   )
                 ],
               ),

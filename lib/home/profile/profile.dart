@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:runiverse/config/font.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/start/login.dart';
 import 'package:runiverse/running/running.dart';
@@ -63,7 +64,9 @@ class _ProfileState extends State<Profile> {
               style: TextStyle(
                   fontSize: 20,
                   color: Palette.iconColor,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: MyFontFamily.Bebas
+              ),
             ),
           ],
         )));
@@ -88,13 +91,18 @@ class _ProfileState extends State<Profile> {
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                            color: Colors.white,
+                            fontFamily: MyFontFamily.Bebas),
                       ),
                       SizedBox(height: 8),
                       Text(
                         "Pace",
                         style:
-                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                            TextStyle(
+                                fontSize: 15,
+                                color: Palette.iconColor,
+                              fontFamily: MyFontFamily.Bebas
+                            ),
                       ),
                     ],
                   ),
@@ -105,13 +113,16 @@ class _ProfileState extends State<Profile> {
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                            color: Colors.white,
+                            fontFamily: MyFontFamily.Bebas),
                       ),
                       SizedBox(height: 8),
                       Text(
                         "Time",
                         style:
-                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                            TextStyle(fontSize: 15,
+                                color: Palette.iconColor,
+                                fontFamily: MyFontFamily.Bebas),
                       ),
                     ],
                   ),
@@ -122,13 +133,16 @@ class _ProfileState extends State<Profile> {
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                            color: Colors.white,
+                            fontFamily: MyFontFamily.Bebas),
                       ),
                       SizedBox(height: 8),
                       Text(
                         "Distance(km)",
                         style:
-                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                            TextStyle(fontSize: 15,
+                                color: Palette.iconColor,
+                                fontFamily: MyFontFamily.Bebas),
                       ),
                     ],
                   ),
@@ -139,13 +153,16 @@ class _ProfileState extends State<Profile> {
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                            color: Colors.white,
+                            fontFamily: MyFontFamily.Bebas),
                       ),
                       SizedBox(height: 8),
                       Text(
                         "kcal",
                         style:
-                            TextStyle(fontSize: 15, color: Palette.iconColor),
+                            TextStyle(fontSize: 15,
+                                color: Palette.iconColor,
+                                fontFamily: MyFontFamily.Bebas),
                       ),
                     ],
                   )

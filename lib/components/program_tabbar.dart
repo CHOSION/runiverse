@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/running/program_intro.dart';
 import 'package:runiverse/start/login.dart';
+import 'package:runiverse/config/font.dart';
 
 class ProgramsTab extends StatefulWidget {
   const ProgramsTab({Key? key}) : super(key: key);
@@ -56,9 +57,9 @@ class _ProgramsTabState extends State<ProgramsTab> {
             SizedBox(height: 20),
             if (isProgram)
               Container(
-                height: height * 2,
+                height: height,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(25),
                     color: Palette.backgroundDarkColor),
                 child: ListView(
                   children: [
@@ -78,6 +79,7 @@ class _ProgramsTabState extends State<ProgramsTab> {
                         title: Text(
                           '30min Running',
                           style: TextStyle(
+                            fontFamily: MyFontFamily.Bebas,
                               fontWeight: FontWeight.bold,
                               color: Palette.iconColor),
                         ),
@@ -87,8 +89,8 @@ class _ProgramsTabState extends State<ProgramsTab> {
                         // ),
                         trailing: IconButton(
                           icon: isLiked
-                              ? Icon(Icons.favorite_border, color: Palette.iconColor)
-                              : Icon(Icons.favorite, color: Palette.iconColor),
+                              ? Icon(Icons.star_border, color: Palette.iconColor)
+                              : Icon(Icons.star, color: Palette.iconColor),
                           onPressed: () {
                             setState(() {
                               isLiked = !isLiked;
@@ -125,8 +127,10 @@ class _ProgramsTabState extends State<ProgramsTab> {
                         title: Text(
                           '(Program Name)',
                           style: TextStyle(
+                            fontFamily: MyFontFamily.Bebas,
                               fontWeight: FontWeight.bold,
-                              color: Palette.iconColor),
+                              color: Palette.iconColor,
+                          ),
                         ),
                         trailing: Icon(
                           Icons.arrow_forward_ios,

@@ -3,6 +3,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:runiverse/start/login.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/config/font.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,11 @@ class SplashScreen extends StatelessWidget {
           children: [
             Image.asset('assets/runiverse_logo.png', height: 85, width: 85),
             const Text('Runiverse',
-              style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Palette.iconColor),
+              style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: MyFontFamily.Bebas,
+                  color: Palette.iconColor),
             )
           ],
         ),

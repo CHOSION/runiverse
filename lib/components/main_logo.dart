@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/config/font.dart';
 
 class MainLogoBtn extends StatelessWidget {
   const MainLogoBtn({Key? key}) : super(key: key);
@@ -24,8 +25,9 @@ class MainLogoBtn extends StatelessWidget {
             "Runiverse",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 24,
-              color: Palette.iconColor
+              fontSize: 32,
+              color: Palette.iconColor,
+                fontFamily: MyFontFamily.Bebas
             ),
           )
         ],
