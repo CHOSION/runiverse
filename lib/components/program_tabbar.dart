@@ -3,6 +3,7 @@ import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/running/program_intro.dart';
 import 'package:runiverse/start/login.dart';
 import 'package:runiverse/config/font.dart';
+import 'package:runiverse/components/program_card.dart';
 
 class ProgramsTab extends StatefulWidget {
   const ProgramsTab({Key? key}) : super(key: key);
@@ -14,7 +15,6 @@ class ProgramsTab extends StatefulWidget {
 class _ProgramsTabState extends State<ProgramsTab> {
 
   bool isProgram = true;
-  bool isLiked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -63,43 +63,7 @@ class _ProgramsTabState extends State<ProgramsTab> {
                     color: Palette.backgroundDarkColor),
                 child: ListView(
                   children: [
-                    Card(
-                      child: ListTile(
-                        onTap: () {
-                          Navigator.push(context, MaterialPageRoute(
-                              builder: (BuildContext context) {
-                                return ProgramIntro();
-                              }));
-                        },
-                        leading: Icon(
-                          Icons.run_circle_outlined,
-                          size: 40,
-                          color: Colors.white,
-                        ),
-                        title: Text(
-                          '30min Running',
-                          style: TextStyle(
-                            fontFamily: MyFontFamily.Bebas,
-                              fontWeight: FontWeight.bold,
-                              color: Palette.iconColor),
-                        ),
-                        // subtitle: Text(
-                        //   '22 May 2022',
-                        //   style: TextStyle(color: Colors.grey),
-                        // ),
-                        trailing: IconButton(
-                          icon: isLiked
-                              ? Icon(Icons.star_border, color: Palette.iconColor)
-                              : Icon(Icons.star, color: Palette.iconColor),
-                          onPressed: () {
-                            setState(() {
-                              isLiked = !isLiked;
-                            });
-                          },
-                        ),
-                        tileColor: Palette.blockColor,
-                      ),
-                    )
+                    ProgramCard()
                   ],
                 ),
               ),
@@ -116,7 +80,7 @@ class _ProgramsTabState extends State<ProgramsTab> {
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(
                               builder: (BuildContext context) {
-                                return LoginPage();
+                                return ProgramIntro();
                               }));
                         },
                         leading: Icon(
@@ -125,11 +89,12 @@ class _ProgramsTabState extends State<ProgramsTab> {
                           color: Colors.white,
                         ),
                         title: Text(
-                          '(Program Name)',
+                          '500m running',
                           style: TextStyle(
                             fontFamily: MyFontFamily.Bebas,
                               fontWeight: FontWeight.bold,
                               color: Palette.iconColor,
+                              fontSize: 21
                           ),
                         ),
                         trailing: Icon(

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "440082562386",
+    "project_id": "runiverse",
+    "storage_bucket": "runiverse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440082562386:android:318479cbe817732de88e8b",
+        "android_client_info": {
+          "package_name": "com.example.runiverse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440082562386-8m3tii8dg5smii0ftja34rg27ve78na8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyQ4srAu2Wp7MEJjb5s7roDB811tio4as"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440082562386-8m3tii8dg5smii0ftja34rg27ve78na8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

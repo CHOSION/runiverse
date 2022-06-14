@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:runiverse/config/palette.dart';
-import 'package:runiverse/running/program_intro.dart';
 import 'package:runiverse/start/signup.dart';
-import 'package:runiverse/home/profile/profile.dart';
 import 'package:runiverse/home/runiverse.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  final _authentication = FirebaseAuth.instance;
+
+  bool isSignupScreen = true;
+  final _formKey = GlobalKey<FormState>();
+
+  String userEmail = '';
+  String userPassWord = '';
+
+  void _tryValidation(){
+    final isValid = _formKey.currentState!.validate();
+    if(isValid){
+      _formKey.currentState!.save();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,52 +66,98 @@ class LoginPage extends StatelessWidget {
   }
 
   _inputField(context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        TextField(
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          TextFormField(
+              key: ValueKey(1),
+              validator: (value){
+                if(value!.isEmpty || !value.contains('@') ){
+                  return 'Please enter a valid email address.';
+                }
+                return null;
+              },
+              onSaved: (value){
+                userEmail = value!;
+              },
+              onChanged: (value){
+                userEmail = value;
+              },
+              decoration: InputDecoration(
+                  hintText: "Email",
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none),
+                  fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
+                  filled: true,
+                  prefixIcon: Icon(Icons.mail))),
+          SizedBox(height: 5),
+          TextFormField(
+            key: ValueKey(2),
+            validator: (value){
+              if(value!.isEmpty || value.length < 6){
+                return 'Password must be at least 7 characters long.';
+              }
+              return null;
+            },
+            onSaved: (value){
+              userPassWord = value!;
+            },
+            onChanged: (value){
+              userPassWord = value;
+            },
+            obscureText: true,
             decoration: InputDecoration(
-                hintText: "Email",
+                hintText: "Password",
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide.none),
                 fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
                 filled: true,
-                prefixIcon: Icon(Icons.mail))),
-        SizedBox(height: 5),
-        TextField(
-          obscureText: true,
-          decoration: InputDecoration(
-              hintText: "Password",
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none),
-              fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
-              filled: true,
-              prefixIcon: Icon(Icons.lock)
+                prefixIcon: Icon(Icons.lock)
+            ),
           ),
-        ),
-        SizedBox(height: 10),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (BuildContext context) {
-                  return RuniverseMain();
-                })
-            );
-          },
-          child: Text(
-            "Login",
-            style: TextStyle(fontSize: 17),
+          SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () async{
+              _tryValidation();
+              try {
+                final newUser =
+                await _authentication.signInWithEmailAndPassword(
+                  email: userEmail,
+                  password: userPassWord,
+                );
+                if (newUser.user != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return RuniverseMain();
+                      },
+                    ),
+                  );
+                }
+              }catch(e){
+                print(e);
+              }
+              print("Entered "+userEmail);
+              print("Entered "+userPassWord);
+            },
+            child: Text(
+              "Login",
+              style: TextStyle(fontSize: 17),
+            ),
+            style: ElevatedButton.styleFrom(
+              primary: Palette.textDarkColor,
+              shape: StadiumBorder(),
+              padding: EdgeInsets.symmetric(vertical: 12),
+            ),
           ),
-          style: ElevatedButton.styleFrom(
-            primary: Palette.textDarkColor,
-            shape: StadiumBorder(),
-            padding: EdgeInsets.symmetric(vertical: 12),
-          ),
-        ),
-        TextButton(onPressed: () {}, child: Text("Forget password?"))
-      ],
+          TextButton(onPressed: () {}, child: Text("Forget password?"))
+        ],
+      ),
     );
   }
 
@@ -118,7 +184,7 @@ class LoginPage extends StatelessWidget {
               print("SignUp Pressed.");
               Navigator.push(context,
                   MaterialPageRoute(builder: (BuildContext context) {
-                    return Profile();
+                    return RuniverseMain();
                   })
               );
             },
@@ -139,7 +205,7 @@ class LoginPage extends StatelessWidget {
               print("SignUp Pressed.");
               Navigator.push(context,
                   MaterialPageRoute(builder: (BuildContext context) {
-                    return ProgramIntro();
+                    return RuniverseMain();
                   })
               );
             },

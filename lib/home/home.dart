@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:runiverse/config/color_filters.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/config/font.dart';
 import 'package:runiverse/components/program_tabbar.dart';
 import 'package:runiverse/components/main_logo.dart';
+import 'package:runiverse/start/signup.dart';
 import 'package:runiverse/components/icon_btn_with_counter.dart';
 
 class Home extends StatefulWidget {
@@ -14,7 +16,29 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   bool isYourPrograms = true;
+
+  final _authentication = FirebaseAuth.instance;
+  User? loggedUser;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getCurrentUser();
+  }
+
+  void getCurrentUser(){
+    try {
+      final user = _authentication.currentUser;
+      if(user != null) {
+        loggedUser = user;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +78,7 @@ class _HomeState extends State<Home> {
                       style: TextStyle(fontSize: 18, color: Colors.white, fontFamily: MyFontFamily.Bebas),
                       children: [
                         TextSpan(
-                          text: "(id)",
+                          text: FirebaseAuth.instance.currentUser!.email,
                           style: TextStyle(
                               color: Palette.iconColor,
                               fontSize: 24,

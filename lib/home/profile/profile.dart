@@ -1,6 +1,10 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:runiverse/config/font.dart';
 import 'package:runiverse/config/palette.dart';
+import 'package:runiverse/running/program_intro.dart';
 import 'package:runiverse/start/login.dart';
 import 'package:runiverse/running/running.dart';
 
@@ -12,7 +16,30 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+
   bool isProgram = true;
+  File? userPickedImage;
+
+  final _authentication = FirebaseAuth.instance;
+  User? loggedUser;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getCurrentUser();
+  }
+
+  void getCurrentUser(){
+    try {
+      final user = _authentication.currentUser;
+      if(user != null) {
+        loggedUser = user;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +78,7 @@ class _ProfileState extends State<Profile> {
                       borderRadius: BorderRadius.circular(25),
                       image: DecorationImage(
                           image: NetworkImage(
-                              "https://images.pexels.com/photos/2773977/pexels-photo-2773977.jpeg?cs=srgb&dl=pexels-rio-kuncoro-2773977.jpg&fm=jpg"),
+                              "https://flyclipart.com/thumb2/avatar-my-profile-profile-user-user-profile-icon-196366.png"),
                           fit: BoxFit.cover)),
                 ),
               ),
@@ -60,7 +87,7 @@ class _ProfileState extends State<Profile> {
               height: 10,
             ),
             Text(
-              "Your ID",
+              "TEST1@MAIL.COM",
               style: TextStyle(
                   fontSize: 20,
                   color: Palette.iconColor,
@@ -87,7 +114,7 @@ class _ProfileState extends State<Profile> {
                   Column(
                     children: [
                       Text(
-                        "6\'30",
+                        "0\'0",
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
@@ -109,7 +136,7 @@ class _ProfileState extends State<Profile> {
                   Column(
                     children: [
                       Text(
-                        "38:05",
+                        "00:00",
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
@@ -129,7 +156,7 @@ class _ProfileState extends State<Profile> {
                   Column(
                     children: [
                       Text(
-                        "5.86",
+                        "0",
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
@@ -138,7 +165,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       SizedBox(height: 8),
                       Text(
-                        "Distance(km)",
+                        "Distance(m)",
                         style:
                             TextStyle(fontSize: 15,
                                 color: Palette.iconColor,
@@ -149,7 +176,7 @@ class _ProfileState extends State<Profile> {
                   Column(
                     children: [
                       Text(
-                        "478",
+                        "0",
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
@@ -205,36 +232,36 @@ class _ProfileState extends State<Profile> {
                       color: Palette.backgroundDarkColor),
                   child: ListView(
                     children: [
-                      Card(
-                        child: ListTile(
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(
-                                builder: (BuildContext context) {
-                              return Running();
-                            }));
-                          },
-                          leading: Icon(
-                            Icons.run_circle_outlined,
-                            size: 40,
-                            color: Colors.white,
-                          ),
-                          title: Text(
-                            '(Program Name)',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Palette.iconColor),
-                          ),
-                          subtitle: Text(
-                            '(Date)',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.white,
-                          ),
-                          tileColor: Palette.blockColor,
-                        ),
-                      )
+                      // Card(
+                      //   child: ListTile(
+                      //     onTap: () {
+                      //       Navigator.push(context, MaterialPageRoute(
+                      //           builder: (BuildContext context) {
+                      //         return ProgramIntro();
+                      //       }));
+                      //     },
+                      //     leading: Icon(
+                      //       Icons.run_circle_outlined,
+                      //       size: 40,
+                      //       color: Colors.white,
+                      //     ),
+                      //     title: Text(
+                      //       '(Program Name)',
+                      //       style: TextStyle(
+                      //           fontWeight: FontWeight.bold,
+                      //           color: Palette.iconColor),
+                      //     ),
+                      //     subtitle: Text(
+                      //       '(Date)',
+                      //       style: TextStyle(color: Colors.grey),
+                      //     ),
+                      //     trailing: Icon(
+                      //       Icons.arrow_forward_ios,
+                      //       color: Colors.white,
+                      //     ),
+                      //     tileColor: Palette.blockColor,
+                      //   ),
+                      // )
                     ],
                   ),
                 ),
@@ -246,32 +273,27 @@ class _ProfileState extends State<Profile> {
                       color: Palette.backgroundDarkColor),
                   child: ListView(
                     children: [
-                      Card(
-                        child: ListTile(
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(
-                                builder: (BuildContext context) {
-                              return LoginPage();
-                            }));
-                          },
-                          leading: Icon(
-                            Icons.recommend,
-                            size: 40,
-                            color: Colors.white,
-                          ),
-                          title: Text(
-                            '1st Trial',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Palette.iconColor),
-                          ),
-                          subtitle: Text(
-                            '(Date)',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          tileColor: Palette.blockColor,
-                        ),
-                      )
+                      // Card(
+                      //   child: ListTile(
+                      //     onTap: () {},
+                      //     leading: Icon(
+                      //       Icons.recommend,
+                      //       size: 40,
+                      //       color: Colors.white,
+                      //     ),
+                      //     title: Text(
+                      //       '1st Trial',
+                      //       style: TextStyle(
+                      //           fontWeight: FontWeight.bold,
+                      //           color: Palette.iconColor),
+                      //     ),
+                      //     subtitle: Text(
+                      //       '(Date)',
+                      //       style: TextStyle(color: Colors.grey),
+                      //     ),
+                      //     tileColor: Palette.blockColor,
+                      //   ),
+                      // )
                     ],
                   ),
                 )

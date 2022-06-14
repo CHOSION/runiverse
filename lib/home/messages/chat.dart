@@ -52,7 +52,7 @@ class _ChatState extends State<Chat> {
                         child: ClipOval(
                           child: Image(
                               image: NetworkImage(
-                                  "https://images.pexels.com/photos/2773977/pexels-photo-2773977.jpeg?cs=srgb&dl=pexels-rio-kuncoro-2773977.jpg&fm=jpg"),
+                                  "https://flyclipart.com/thumb2/avatar-my-profile-profile-user-user-profile-icon-196366.png"),
                               height: 50,
                               width: 50,
                               fit: BoxFit.cover),
@@ -60,7 +60,7 @@ class _ChatState extends State<Chat> {
                       ),
                     ),
                     title: Text(
-                      "(Program Name)",
+                      "TEST1@MAIL.COM",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -111,7 +111,7 @@ class _ChatState extends State<Chat> {
                       Column(
                         children: [
                           Text(
-                            "6\'30",
+                            "0\'00",
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
@@ -132,7 +132,7 @@ class _ChatState extends State<Chat> {
                       Column(
                         children: [
                           Text(
-                            "38:05",
+                            "0:00",
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
@@ -151,7 +151,7 @@ class _ChatState extends State<Chat> {
                       Column(
                         children: [
                           Text(
-                            "5.86",
+                            "0",
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
@@ -160,7 +160,7 @@ class _ChatState extends State<Chat> {
                           ),
                           SizedBox(height: 8),
                           Text(
-                            "Distance(km)",
+                            "Distance(m)",
                             style:
                             TextStyle(fontSize: 15, color: Palette.iconColor,
                                 fontFamily: MyFontFamily.Bebas),
@@ -170,7 +170,7 @@ class _ChatState extends State<Chat> {
                       Column(
                         children: [
                           Text(
-                            "478",
+                            "0",
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,

@@ -1,5 +1,8 @@
 import 'dart:async';
+import 'dart:math';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter/material.dart';
+import 'package:health/health.dart';
 import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/config/font.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -11,7 +14,19 @@ class Running extends StatefulWidget {
   State<Running> createState() => RunningState();
 }
 
+enum AppState {
+  DATA_NOT_FETCHED,
+  FETCHING_DATA,
+  DATA_READY,
+  NO_DATA,
+  AUTH_NOT_GRANTED,
+  DATA_ADDED,
+  DATA_NOT_ADDED,
+  STEPS_READY,
+}
+
 class RunningState extends State<Running> {
+
   @override
   Widget build(BuildContext context) {
 
@@ -52,23 +67,23 @@ class RunningState extends State<Running> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '(id)',
+                    'test1@mail.com',
                     style: TextStyle(
                         color: Palette.iconColor,
-                        fontSize: 16,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                       fontFamily: MyFontFamily.Bebas
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Text(
-                    '(date)',
-                    style: TextStyle(
-                        color: Palette.blockColor,
-                        fontSize: 12,
-                      fontFamily: MyFontFamily.Bebas
-                    ),
-                  )
+                  //SizedBox(height: 5),
+                  // Text(
+                  //   '',
+                  //   style: TextStyle(
+                  //       color: Palette.blockColor,
+                  //       fontSize: 12,
+                  //     fontFamily: MyFontFamily.Bebas
+                  //   ),
+                  // )
                 ],
               )
             ],
@@ -139,7 +154,7 @@ class RunningState extends State<Running> {
                   ),
                   Padding(padding: EdgeInsets.only(top: 30),),
                   Text(
-                    '547',
+                    '0',
                     style: TextStyle(
                         color: Palette.iconColor,
                         fontSize: 80,
@@ -165,7 +180,7 @@ class RunningState extends State<Running> {
                               ),
                             ),
                             Text(
-                              '1000 m',
+                              '500 m',
                               style: TextStyle(
                                   color: Colors.grey
                               ),
@@ -175,7 +190,7 @@ class RunningState extends State<Running> {
                         SizedBox(height: 10),
                         LinearPercentIndicator(
                           lineHeight: 8.0,
-                          percent: 0.6,
+                          percent: 0.0,
                           linearStrokeCap: LinearStrokeCap.roundAll,
                           backgroundColor: Colors.grey,
                           progressColor: Palette.iconColor,
@@ -227,7 +242,7 @@ class RunningState extends State<Running> {
                                     text: TextSpan(
                                         children: [
                                           TextSpan(
-                                              text: '1224',
+                                              text: '0',
                                               style: TextStyle(
                                                   color: Palette.iconColor,
                                                   fontSize: 20,
@@ -265,7 +280,7 @@ class RunningState extends State<Running> {
                                     text: TextSpan(
                                         children: [
                                           TextSpan(
-                                              text: '243',
+                                              text: '0',
                                               style: TextStyle(
                                                   color: Palette.iconColor,
                                                   fontSize: 20,
@@ -303,7 +318,7 @@ class RunningState extends State<Running> {
                                     text: TextSpan(
                                         children: [
                                           TextSpan(
-                                              text: '6.04',
+                                              text: '0.0',
                                               style: TextStyle(
                                                   color: Palette.iconColor,
                                                   fontSize: 20,

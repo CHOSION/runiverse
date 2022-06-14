@@ -4,7 +4,7 @@ import 'package:runiverse/config/palette.dart';
 import 'package:runiverse/config/font.dart';
 import 'package:runiverse/components/main_logo.dart';
 import 'package:runiverse/components/icon_btn_with_counter.dart';
-import 'package:runiverse/components/chat.dart';
+import 'package:runiverse/home/messages/chat.dart';
 
 class Messages extends StatefulWidget {
   const Messages({Key? key}) : super(key: key);
@@ -52,9 +52,6 @@ class _MessagesState extends State<Messages> {
               ],
             ),
             SizedBox(height: height * 0.03),
-            Chat(),
-            Chat(),
-            Chat(),
             Chat(),
           ],
         ),
