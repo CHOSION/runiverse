@@ -4,6 +4,7 @@ import 'package:runiverse/config/font.dart';
 import 'package:runiverse/running/example.dart';
 import 'package:runiverse/running/running.dart';
 import 'package:runiverse/running/running_ver2.dart';
+import 'package:runiverse/running/pedometer.dart';
 import 'package:runiverse/running/running_certificate.dart';
 
 class ProgramIntro extends StatefulWidget {
@@ -105,7 +106,7 @@ class _ProgramIntroState extends State<ProgramIntro> {
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (BuildContext context) {
-                        return runningVer2();
+                        return Pedometer();
                       })
                   );
                 },
